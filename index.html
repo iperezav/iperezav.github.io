@@ -15,16 +15,19 @@
 
 <style>
 
-a:hover {
-  color: blue;
-  background-color: transparent;
+
+
+a{
+color:blue
 }
 
-a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
-}
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+
+
 </style>
 </head>
 
@@ -40,14 +43,11 @@ a:active {
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
     <div class="w3-dropdown-hover w3-hide-small">
     </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
 
-
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
   <a href="#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
   <a href="#publications" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PUBLICATIONS</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
@@ -58,9 +58,10 @@ a:active {
 
     
 <!-- About Section -->
+
   <div class="w3-row w3-padding-64" id="about">
-    <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="headshot.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750">
+    <div class="w3-col m6 w3-padding-large">
+     <img  src="headshot.jpg" class="w3-round w3-image" alt="Table Setting" width="600" height="750" >
     </div>
 
     <div class="w3-col m6 w3-padding-large">
@@ -68,7 +69,7 @@ a:active {
       <p class="w3-large">
       I am a Ph.D. student in Electrical Engineering at the <a href="https://www.uvm.edu/" target="_blank"> University of Vermont</a> in the U.S.
       I work in the group of <a href="https://www.uvm.edu/~lduffaut/" target="_blank"> Dr. Luis Duffaut Espinosa</a>.   
-      I hold a Master's degree in Economics and a Bachelor's and License degree in Mathematics by the <a href="https://www.pucp.edu/" target="_blank"> Pontifica Universidad Católica del Perú</a>.
+      I hold a Master's degree in Economics and a Bachelor's and License degree in Mathematics by the <a href="https://www.pucp.edu.pe/" target="_blank"> Pontifica Universidad Católica del Perú</a>.
       </p>
       
       <p class="w3-large">
@@ -80,7 +81,18 @@ a:active {
      
     </div>
   </div>
+
     
+    
+    
+     <!-- Projects section -->
+     <div class="w3-container w3-content w3-padding-64" id="projects">
+        <div class="w3-content" style="max-width:700px">
+            <h1 class="w3-center w3-wide">Projects</h1>
+            
+            
+      </div>
+    </div>
     
     
     
@@ -88,9 +100,10 @@ a:active {
     <div class="w3-container w3-content w3-padding-64" id="publications">
       <div class="w3-content" style="max-width:700px">
         <!--<h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">PUBLICATIONS</span></h5>-->
-    	<h2 class="w3-center w3-wide">Publications</h2>
-    	<h3 class="w3-wide">Conferences</h3>
-    	<ol>
+    	<h1 class="w3-center w3-wide">Publications</h1>
+    	<h2 class="w3-wide">Conferences</h2>
+    	<p>
+    	<ol style="font-size:18px">
             <li>
             I. Perez Avellaneda and L. A. Duffaut Espinosa. "On Mixed-Monotonicity of Chen-Fliess series".
             <em>26th International Conference on System Theory, Control and Computing (ICSTCC)</em>, 2022, pp. 98-103.  <a href="https://ieeexplore.ieee.org/document/9931830" target="_blank"> [link]</a>
@@ -106,9 +119,10 @@ a:active {
             <em>American Control Conference</em>, 2023, (under review).
             </li>
         </ol>
+        </p>
         
-        <h3 class="w3-wide">Journals</h3>
-        	<ol>
+        <h2 class="w3-wide">Journals</h2>
+        	<ol style="font-size:18px">
                 <li>
                 I. Perez Avellaneda and L. A. Duffaut Espinosa. "Reachability".
                 <em>Transactions</em>, 2022, pp. 98-103.  <a href="https://ieeexplore.ieee.org/document/9931830" target="_blank"> [link]</a>
@@ -116,8 +130,8 @@ a:active {
                 
             </ol>
             
-        <h3 class="w3-wide">Talks</h3>
-        	<ol>
+        <h2 class="w3-wide">Talks</h2>
+        	<ol style="font-size:18px">
                 <li>
                 Ivan Perez-Avellaneda, Nonlinear System Reachable Set Computation: Learning Approach with Chen-Fliess Series.
                 <em>UVM Computing Student Research Day 2022 (CSRD '22)</em>, September 23, 2022 <a href="https://www.uvm.edu/~jonaolap/csrd/2022.html" target="_blank"> [link]</a>
@@ -130,8 +144,8 @@ a:active {
                 
             </ol>
             
-        <h3 class="w3-wide">Thesis</h3>
-        	<ol>
+        <h2 class="w3-wide">Thesis</h2>
+        	<ol style="font-size:18px">
                 <li>
                 Ivan Perez-Avellaneda, Debt control with a non-linear dynamical model: an application to the Peruvian economy for the period 1991-2014.
                 <em>Master thesis</em><a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/21239" target="_blank"> [link]</a>
@@ -155,10 +169,11 @@ a:active {
         <!--<h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">PUBLICATIONS</span></h5>-->
     	<h2 class="w3-center w3-wide">Contact</h2>
     	<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    	<p>e-mail: ivan.perez at uvm.edu</p>
+    	<p>E-mail: ivan.perez at uvm.edu<br>
+    	<a href="https://scholar.google.com/citations?user=_Agx7t4AAAAJ&hl=en" target="_blank">Google Scholar</a>
+    	</p>
     	<a href="https://www.linkedin.com/in/ipa314" target="_blank"> <i class="fa fa-linkedin w3-hover-opacity"></i></a>
-    	<i class="fa fa-github"></i>
-          
+    	<a href="https://github.com/ipa314" target="_blank"> <i class="fa fa-github"></i></a>
         </footer>
       </div>
     
@@ -171,6 +186,28 @@ a:active {
 <footer class="w3-center">
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
+
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 </body>
 

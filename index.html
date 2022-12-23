@@ -127,7 +127,237 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="w3-content" style="max-width:700px">
             <h1 class="w3-center w3-wide">Projects</h1>
             
+            <br>
             
+            <!-- Reachability subsection -->
+            <p>
+            <h2 class="w3-wide">Reachability of Systems</h2>
+            
+            
+            <hr>
+            </p>
+            
+            
+             <p class="w3-large w3-justify">
+             A <em>reachable set</em> is the set of states of a system 
+             as a result of a set of inputs and initial conditions. 
+             Knowing the possible reachable sets ahead of the execution
+             of the system is useful for the plannification and control of its outputs.
+             Popular offline methodologies to compute these sets for nonlinear systems
+             are the Hamilton-Jacobi
+             approach, Mixed-Monotonicity and set-progration. 
+             
+             <br>
+             <br>
+             
+             My contributions to this topic are the following: first, I provided a reachable set overestimation 
+             using interval arithmetics. Second, I extended the Mixed-Monotonicity 
+             approach to Chen-Fliess series to configure an Input-Output 
+             Mixed-Monotonicity (IOMM) framework. Third, I extended differential analysis
+             tools to Chen-Flies series to improve the IOMM outcome. 
+             
+             </p>
+            
+            
+            
+            
+            <div class="w3-center">
+            <figure>
+             <img  src="rsetsGDvsMMvsIOMM3.png" class="w3-round w3-image" alt="Table Setting" width="500" height="500" >
+             <figcaption>Fig.1 - Reachable set overestimation by the Mixed-Monotonicity, Gradient Descent and 
+             Input-Output Mixed-Monotonicity approaches.</figcaption>
+            </figure>
+            </div>
+            
+            <br>
+            
+            <p class="w3-large w3-justify">
+            <h3><b>Relevant publications:</b></h3>
+        	<ol style="font-size:18px">
+                <li>
+                I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>On Mixed-Monotonicity of Chen-Fliess series</q>.
+                <em>26th International Conference on System Theory, Control and Computing (ICSTCC)</em>, 2022, pp. 98-103.  <a href="https://ieeexplore.ieee.org/document/9931830" target="_blank" class="bodylink"> [link]</a>
+                </li>
+                
+                <li>
+                 I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
+                <em>58th Annual Allerton Conference on Communication, Control, and Computing (Allerton)</em>, 2022, pp. 1-7. <a href="https://ieeexplore.ieee.org/document/9929346" target="_blank" class="bodylink"> [link]</a>
+                </li>
+
+                <li>
+                I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
+                <em>American Control Conference</em>, 2023, (under review).
+                </li>
+                
+                <li>
+                I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
+                <em>Conference on Information Science and Systems</em>, 2023, (under review).
+                </li>
+                
+                <li>
+                I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
+                <em>Transactions on Automatic Control</em>, in preparation.  
+                <!--
+                <a href="https://ieeexplore.ieee.org/document/9931830" target="_blank" class="bodylink"> [link]</a>
+                -->
+                </li>
+            </ol>
+            </p>
+            
+            
+                 <div class="w3-row">
+                 <div class="w3-third">
+                   <p class="w3-large w3-justify">
+                   <h3><b>Sponsors:</b></h3>
+                   </p>
+                 </div>
+                  <div class="w3-third">
+                    <img src="nasaicon.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                  </div>
+                  <div class="w3-third">
+                    <img src="CRRELicon.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                  </div>
+                 </div>
+
+            
+            
+            
+            <p>
+            <h2 class="w3-wide">Optimization of Chen-Fliess Series</h2>
+            <hr>
+            </p>
+            
+             <p class="w3-large w3-justify">
+             The applications of optimization is pervasive over all scientific disciplines. 
+             In nonlinear optimization two techniques standout: 
+             <em>line search</em> and <em>trust regions</em>.
+             These are related to first and second order derivatives, respectively.
+             Each have pros and cons. The first approach has the advantage of
+             using only the gradient while the second requires the computation
+             of the Hessian matrix. The second approach is faster when
+             the approximation to the second order of the Taylor polynomial
+             is better.
+             
+             <br>
+             <br>
+             
+             My contributions to this topic are the following: 
+             first, I provided closed forms of real analysis tools such as the Fr&eacutechet, 
+             G&acircteaux derivative, and the gradient and Hessian
+             of Chen-Fliess series. 
+             Second, I proved the first and second order
+             Mean Value Theorem for Chen-Fliess series which provides the respective 
+             degree approximations of the Taylor polynomial. 
+             Third, I implemented the <em>Gradient Descent</em> and <em>Newton-Raphson</em>
+             algorithm to optimize Chen-Fliess series.
+             </p>
+            
+            
+            <div class="w3-center">
+            <figure>
+             <img  src="minCFS4.png" class="w3-round w3-image" alt="Table Setting" width="400" height="400" >
+             <figcaption>Fig.2 - The optimization problem.</figcaption>
+            </figure>
+            </div>
+            
+           <br>
+            
+           <p class="w3-large w3-justify">
+           <h3><b>Relevant publications:</b></h3>
+           	<ol style="font-size:18px">
+               
+               <li>
+                I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
+               <em>58th Annual Allerton Conference on Communication, Control, and Computing (Allerton)</em>, 2022, pp. 1-7. <a href="https://ieeexplore.ieee.org/document/9929346" target="_blank" class="bodylink"> [link]</a>
+               </li>
+               
+               <li>
+               I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
+               <em>Conference on Information Science and Systems</em>, 2023, (under review).
+               </li>
+               
+               <li>
+               I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
+               <em>Transactions on Automatic Control</em>, in preparation.  
+               <!--
+               <a href="https://ieeexplore.ieee.org/document/9931830" target="_blank" class="bodylink"> [link]</a>
+               -->
+               </li>
+           </ol>
+           </p>
+           
+           
+                <div class="w3-row">
+                <div class="w3-third">
+                  <p class="w3-large w3-justify">
+                  <h3><b>Sponsors:</b></h3>
+                  </p>
+                </div>
+                 <div class="w3-third">
+                   <img src="nasaicon.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                 </div>
+                 <div class="w3-third">
+                   <img src="CRRELicon.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                 </div>
+                </div>
+            
+            
+            
+            <!-- Differential Languages subsection -->
+            <p>
+            <h2 class="w3-wide">Differential Languages</h2>
+            <hr>
+            </p>
+            
+            
+
+             <p class="w3-large w3-justify">
+             I introduced the theory of <em>differential languages</em> to the literature
+             to formalize the concepts of differential analysis of Chen-Fliess series.
+             
+             </p>
+
+
+            <div class="w3-center">
+            <figure>
+             <img  src="commutativediag2.png" class="w3-round w3-image" alt="Table Setting" width="400" height="400" >
+             <figcaption>Fig.3 - Commutative diagram between the G&acircteaux derivative and the language derivative.</figcaption>
+            </figure>
+            </div>
+
+
+            
+            <br>
+            
+            <p class="w3-large w3-justify">
+            <h3><b>Relevant publications:</b></h3>
+        	<ol style="font-size:18px">
+                
+                <li>
+                I. Perez Avellaneda and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
+                <em>Conference on Information Science and Systems</em>, 2023, (under review).
+                </li>
+
+            </ol>
+            </p>
+            
+                 <div class="w3-row">
+                 <div class="w3-third">
+                   <p class="w3-large w3-justify">
+                   <h3><b>Sponsors:</b></h3>
+                   </p>
+                 </div>
+                  <div class="w3-third">
+                    <img src="nasaicon.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                  </div>
+                  <div class="w3-third">
+                    <img src="CRRELicon.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                  </div>
+                 </div>
+
+             
+            
+            </p>
       </div>
     </div>
     
@@ -142,8 +372,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     	
     	<br>
     	
-    	<h2 class="w3-wide">Conferences</h2>
     	<p>
+    	<h2 class="w3-wide">Conferences</h2>
+    	
     	
     	<hr>
     	

@@ -1,0 +1,148 @@
+  // Populate the conference list dynamically
+  var conferenceList = document.getElementById("conference-list");
+  var journalList = document.getElementById("journal-list");
+  var talksList = document.getElementById("talks-list");
+  var thesisList = document.getElementById("thesis-list");
+  var project1List = document.getElementById("project1-list");
+  var project2List = document.getElementById("project2-list");
+  var project3List = document.getElementById("project3-list");
+
+  
+  var conferenceItems = [
+    // Add more conference items on top as needed
+    `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.
+    <em>62nd Conference on Decision and Control</em>, 2023, (under review).`,
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
+    <em>7th Conference on Control Technology and Applications</em>, 2023, (to appear).`,
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Output Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
+    <em>57th Annual Conference on Information Science and Systems</em>, Baltimore, Maryland, 2023, pp. 1-6. <a href="https://ieeexplore.ieee.org/document/10089740" target="_blank" class="bodylink"> [link]</a>`,
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
+    <em>58th Annual Allerton Conference on Communication, Control, and Computing</em>, Monticello, Illinois, 2022, pp. 1-7. <a href="https://ieeexplore.ieee.org/document/9929346" target="_blank" class="bodylink"> [link]</a>`,
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. \"On Mixed-Monotonicity of Chen-Fliess series.\" <em>26th International Conference on System Theory, Control and Computing (ICSTCC), </em>Sinaia, Romania, 2022, pp. 98-103.  <a href="https://ieeexplore.ieee.org/document/9931830" target="_blank" class="bodylink"> [link]</a>`, 
+  ];
+
+  var JournalItems = [
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
+    <em>PLOS ONE</em>, 2023. (under review). `,
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability</q>.
+    <em>Automatica</em>, 2023. (under review). `,
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
+    <em>Transactions on Automatic Control</em>, 2023.(under review). `,
+    ];
+
+    var TalksItems = [
+      `I. Perez Avellaneda, <q>Optimization of Chen-Fliess series and Output Reachability of Nonlinear Systems</q>.
+      <em>Student Research Conference 2023</em>, Burlington, Vermont, April 19, 2023. <a href="https://www.uvm.edu/sites/default/files/Office-of-Fellowships-Opportunities-Undergraduate-Research/SRC2023/Morning_II_Session_Final.pdf" target="_blank" class="bodylink"> [link]</a>
+      <a href="Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>
+      </li`,
+    
+
+      `I. Perez Avellaneda, <q>Output Reachability of Chen-Fliess Series: a Newton-Raphson Approach</q>.
+      <em>57th Annual Conference on Information Science and Systems</em>, Baltimore, Maryland, March 25, 2023. <a href="https://ciss.jhu.edu/optimization-systems-control-ii/" target="_blank" class="bodylink"> [link]</a>
+      <a href="CISS_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+
+
+      `I. Perez Avellaneda, <q>Private debt control in the Peruvian economy for the period 1991-2014</q>.
+      <em>USMP XIII Conferencia Internacional: Retos y Desafíos de la Nueva Economía 2023</em>, Lima, Peru, February 21, 2023.<a href="https://usmp.edu.pe/escuela-profesional-de-economia-realizo-el-xiii-seminario-internacional-retos-y-desafios-de-la-nueva-economia-2023/" target="_blank" class="bodylink"> [link]</a>
+      <a href="DebtControl23.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+    
+    
+      `I. Perez Avellaneda, <q>The Problem of Stationary Points of Chen-Fliess Series</q>.
+      <em>Quebec-Vermont Number Theory Seminar (unQVNTS Vermont)</em>, Burlington, Vermont, January 19, 2023. <a href="https://www.uvm.edu/~unqvnts/" target="_blank" class="bodylink"> [link]</a>
+      <a href="unQVNTS_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+
+
+      `I. Perez Avellaneda, <q>Nonlinear System Reachable Set Computation: Learning Approach with Chen-Fliess Series</q>.
+      <em>UVM Computing Student Research Day 2022 (CSRD '22)</em>, Burlington, Vermont, September 23, 2022. <a href="https://www.uvm.edu/~jonaolap/csrd/2022.html" target="_blank" class="bodylink"> [link]</a>
+      <a href="CSRD22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      
+      
+      `I. Perez Avellaneda, <q>On Mixed-Monotonicity of Chen-Fliess series</q>.
+      <em>26th International Conference on System Theory, Control and Computing (ICSTCC)</em>, Sinaia, Romania, October 19th, 2022.  <a href="https://controls.papercept.net/conferences/conferences/STCC22/program/STCC22_ContentListWeb_1.html#web1" target="_blank" class="bodylink"> [link]</a>
+      <a href="ICSTC22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      
+      `I. Perez Avellaneda, <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
+      <em>58th Annual Allerton Conference on Communication, Control, and Computing</em>, Monticello, Illinois, September 28th, 2022. <a href="https://allerton.csl.illinois.edu/2022-58th-allerton-conference-on-communication-control-and-computing-papers/" target="_blank" class="bodylink"> [link]</a>
+      <a href="Allerton22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      
+      
+      `I. Perez Avellaneda, <q>The Electrical Department to the Rescue of the Financial Market: Controlling Debt</q>.
+      <em> UVM SCRAPS Seminar</em>, Burlington, Vermont, October 21, 2019. <a href="https://erikweis.github.io/scraps/" target="_blank" class="bodylink"> [link]</a>`,
+      ];
+
+      
+
+      var ThesisItems = [
+        `I. Perez Avellaneda, <q>Debt control with a non-linear dynamical model: an application to the Peruvian economy for the period 1991-2014</q>,
+        M.Sc. thesis, Esc. de Posgr, Pontificia Universidad Católica del Perú, Lima, Perú, 2021.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/21239" target="_blank" class="bodylink"> [link]</a>`,
+        
+        `I. Perez Avellaneda, <q>Associative property on the group of elliptic curves</q>.
+        Lic. thesis, Fac. de Cs. e Ing., Pontificia Universidad Católica del Perú, Lima, Perú, 2017.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/9696" target="_blank" class="bodylink"> [link]</a>`,
+        ];
+
+
+        var Project1Items=[
+          conferenceItems[0],
+          conferenceItems[1],
+          conferenceItems[2],
+          conferenceItems[3],
+          JournalItems[1],
+          JournalItems[2],
+        ]
+
+        var Project2Items=[
+          conferenceItems[0],
+          conferenceItems[2],
+          conferenceItems[3],
+          JournalItems[1],
+          JournalItems[2],
+        ]
+
+        var Project3Items=[
+          conferenceItems[0],
+          JournalItems[1],
+        ]
+  
+  for (var i = 0; i < conferenceItems.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = conferenceItems[i];
+    conferenceList.appendChild(listItem);
+  }
+  
+
+  for (var i = 0; i < JournalItems.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = JournalItems[i];
+    journalList.appendChild(listItem);
+  }
+
+  for (var i = 0; i < ThesisItems.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = ThesisItems[i];
+    thesisList.appendChild(listItem);
+  }
+
+
+  for (var i = 0; i < TalksItems.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = TalksItems[i];
+    talksList.appendChild(listItem);
+  }
+
+  for (var i = 0; i < Project1Items.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = Project1Items[i];
+    project1List.appendChild(listItem);
+  }
+
+  for (var i = 0; i < Project2Items.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = Project2Items[i];
+    project2List.appendChild(listItem);
+  }
+
+  for (var i = 0; i < Project3Items.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = Project3Items[i];
+    project3List.appendChild(listItem);
+  }

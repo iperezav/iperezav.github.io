@@ -1,0 +1,28 @@
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+a.bodylink {
+  color: blue;
+}
+
+a.bodylink:link,
+a.bodylink:visited,
+a.bodylink:hover,
+a.bodylink:active {
+  text-decoration: none;
+}
+
+li {
+  margin: 10px 0;
+}
+
+hr {
+  border: none;
+  height: 1.5px;
+  color: #333;
+  background-color: #333;
+}
+
+

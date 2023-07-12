@@ -10,10 +10,12 @@
   
   var conferenceItems = [
     // Add more conference items on top as needed
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series</q>.
+    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023, to appear.`,
     `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.
-    <em>62nd Conference on Decision and Control</em>, 2023, (under review).`,
+    <em>62nd Conference on Decision and Control</em>, 2023, to appear.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
-    <em>7th Conference on Control Technology and Applications</em>, 2023, (to appear).`,
+    <em>7th Conference on Control Technology and Applications</em>, 2023, to appear.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Output Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
     <em>57th Annual Conference on Information Science and Systems</em>, Baltimore, Maryland, 2023, pp. 1-6. <a href="https://ieeexplore.ieee.org/document/10089740" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
@@ -23,11 +25,11 @@
 
   var JournalItems = [
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
-    <em>PLOS ONE</em>, 2023. (under review). `,
+    <em>PLOS ONE</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability</q>.
-    <em>Automatica</em>, 2023. (under review). `,
+    <em>Automatica</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
-    <em>Transactions on Automatic Control</em>, 2023.(under review). `,
+    <em>Transactions on Automatic Control</em>, 2023. under review. `,
     ];
 
     var TalksItems = [

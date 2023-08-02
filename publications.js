@@ -24,7 +24,7 @@
   ];
 
   var JournalItems = [
-    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
+    `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa and Francisco Rosales Marticorena. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
     <em>PLOS ONE</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability</q>.
     <em>Automatica</em>, 2023. under review. `,

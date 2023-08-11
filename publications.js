@@ -11,7 +11,7 @@
   var conferenceItems = [
     // Add more conference items on top as needed
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series</q>.
-    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023, under review.`,
+    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023, to appear.`,
     `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.
     <em>62nd Conference on Decision and Control</em>, 2023, to appear.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.

@@ -33,10 +33,13 @@
     ];
 
     var TalksItems = [
+      `I. Perez Avellaneda, <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
+      <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, August 17, 2023. <a href="https://css.paperplaza.net/conferences/conferences/CCTA23/program/CCTA23_AuthorIndexWeb.html" target="_blank" class="bodylink"> [link]</a>
+      <a href="CCTA_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      
       `I. Perez Avellaneda, <q>Optimization of Chen-Fliess series and Output Reachability of Nonlinear Systems</q>.
       <em>Student Research Conference 2023</em>, Burlington, Vermont, April 19, 2023. <a href="https://www.uvm.edu/sites/default/files/Office-of-Fellowships-Opportunities-Undergraduate-Research/SRC2023/Morning_II_Session_Final.pdf" target="_blank" class="bodylink"> [link]</a>
-      <a href="Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>
-      </li`,
+      <a href="Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>`,
     
 
       `I. Perez Avellaneda, <q>Output Reachability of Chen-Fliess Series: a Newton-Raphson Approach</q>.

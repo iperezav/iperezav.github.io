@@ -6,7 +6,7 @@
   var project1List = document.getElementById("project1-list");
   var project2List = document.getElementById("project2-list");
   var project3List = document.getElementById("project3-list");
-
+  
   
   var conferenceItems = [
     // Add more conference items on top as needed
@@ -15,7 +15,7 @@
     `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.
     <em>62nd Conference on Decision and Control</em>, 2023, to appear.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
-    <em>7th Conference on Control Technology and Applications</em>, 2023, to appear.`,
+    <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, 2023, <a href="https://ieeexplore.ieee.org/document/10253257" target="_blank" class="bodylink"> [link]</a>.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Output Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
     <em>57th Annual Conference on Information Science and Systems</em>, Baltimore, Maryland, 2023, pp. 1-6. <a href="https://ieeexplore.ieee.org/document/10089740" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
@@ -27,7 +27,7 @@
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa and Francisco Rosales Marticorena. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
     <em>PLOS ONE</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability</q>.
-    <em>Automatica</em>, 2023. under review. `,
+    <em>Systems and Control Letters</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
     <em>Transactions on Automatic Control</em>, 2023. under review. `,
     ];
@@ -36,8 +36,8 @@
       `I. Perez Avellaneda, <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
       <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, August 17, 2023. <a href="https://css.paperplaza.net/conferences/conferences/CCTA23/program/CCTA23_AuthorIndexWeb.html" target="_blank" class="bodylink"> [link]</a>
       <a href="CCTA_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
-      
-      `I. Perez Avellaneda, <q>Optimization of Chen-Fliess series and Output Reachability of Nonlinear Systems</q>.
+
+      `I. Perez Avellaneda, <q>Optimization of Chen-Fliess Series and Output Reachability of Nonlinear Systems</q>.
       <em>Student Research Conference 2023</em>, Burlington, Vermont, April 19, 2023. <a href="https://www.uvm.edu/sites/default/files/Office-of-Fellowships-Opportunities-Undergraduate-Research/SRC2023/Morning_II_Session_Final.pdf" target="_blank" class="bodylink"> [link]</a>
       <a href="Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>`,
     
@@ -47,7 +47,7 @@
       <a href="CISS_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
 
 
-      `I. Perez Avellaneda, <q>Private debt control in the Peruvian economy for the period 1991-2014</q>.
+      `I. Perez Avellaneda, <q>Private Debt Control in the Peruvian Economy for the Period 1991-2014</q>.
       <em>USMP XIII Conferencia Internacional: Retos y Desafíos de la Nueva Economía 2023</em>, Lima, Peru, February 21, 2023.<a href="https://usmp.edu.pe/escuela-profesional-de-economia-realizo-el-xiii-seminario-internacional-retos-y-desafios-de-la-nueva-economia-2023/" target="_blank" class="bodylink"> [link]</a>
       <a href="DebtControl23.pdf" target="_blank" class="bodylink"> [slides]</a>`,
     
@@ -62,11 +62,11 @@
       <a href="CSRD22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
       
       
-      `I. Perez Avellaneda, <q>On Mixed-Monotonicity of Chen-Fliess series</q>.
+      `I. Perez Avellaneda, <q>On Mixed-Monotonicity of Chen-Fliess Series</q>.
       <em>26th International Conference on System Theory, Control and Computing (ICSTCC)</em>, Sinaia, Romania, October 19th, 2022.  <a href="https://controls.papercept.net/conferences/conferences/STCC22/program/STCC22_ContentListWeb_1.html#web1" target="_blank" class="bodylink"> [link]</a>
       <a href="ICSTC22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
       
-      `I. Perez Avellaneda, <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
+      `I. Perez Avellaneda, <q>Reachability of Chen-Fliess Series: A Gradient Descent Approach</q>.
       <em>58th Annual Allerton Conference on Communication, Control, and Computing</em>, Monticello, Illinois, September 28th, 2022. <a href="https://allerton.csl.illinois.edu/2022-58th-allerton-conference-on-communication-control-and-computing-papers/" target="_blank" class="bodylink"> [link]</a>
       <a href="Allerton22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
       
@@ -78,6 +78,9 @@
       
 
       var ThesisItems = [
+        `I. Perez Avellaneda, <q>Data-driven Reachability of Non-linear Systems via Optimization of Chen-Fliess Series</q>,
+        Ph.D. dissertation, University of Vermont, Burlington, Vermont, 2023.`,
+
         `I. Perez Avellaneda, <q>Debt control with a non-linear dynamical model: an application to the Peruvian economy for the period 1991-2014</q>,
         M.Sc. thesis, Esc. de Posgr, Pontificia Universidad Católica del Perú, Lima, Perú, 2021.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/21239" target="_blank" class="bodylink"> [link]</a>`,
         

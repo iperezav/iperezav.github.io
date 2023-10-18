@@ -33,6 +33,10 @@
     ];
 
     var TalksItems = [
+      `I. Perez Avellaneda, <q>Backward and Inner Approximation of Output Reachable sets via Chen-Fliess Series</q>.
+      <em>58th Annual Allerton Conference on Communication, Control, and Computing</em>, Monticello, Illinois, September 29th, 2023. <a href="https://easychair.org/smart-program/Allerton2023/" target="_blank" class="bodylink"> [link]</a>
+      `,
+      
       `I. Perez Avellaneda, <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
       <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, August 17, 2023. <a href="https://css.paperplaza.net/conferences/conferences/CCTA23/program/CCTA23_AuthorIndexWeb.html" target="_blank" class="bodylink"> [link]</a>
       <a href="CCTA_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,

@@ -11,9 +11,9 @@
   var conferenceItems = [
     // Add more conference items on top as needed
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series</q>.
-    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023, to appear.`,
+    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023, <a href="https://ieeexplore.ieee.org/document/10313403" target="_blank" class="bodylink"> [link]</a>`,
     `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.
-    <em>62nd Conference on Decision and Control</em>, 2023, to appear.`,
+    <em>62nd Conference on Decision and Control</em>, 2023, <a href="https://ieeexplore.ieee.org/document/10383539" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
     <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, 2023, <a href="https://ieeexplore.ieee.org/document/10253257" target="_blank" class="bodylink"> [link]</a>.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Output Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
@@ -25,7 +25,8 @@
 
   var JournalItems = [
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa and Francisco Rosales Marticorena. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
-    <em>PLOS ONE</em>, 2023. under review. `,
+    <em>PLOS ONE</em>, 2023. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0295859" target="_blank" class="bodylink"> [link]</a> 
+    <a href="https://pubmed.ncbi.nlm.nih.gov/38335197/" target="_blank" class="bodylink"> [link]</a>`, 
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability</q>.
     <em>Systems and Control Letters</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
@@ -33,6 +34,14 @@
     ];
 
     var TalksItems = [
+      `I. Perez Avellaneda, <q>Data-Driven Reachability of Non-Linear Systems via Optimization of Chen-Fliess Series</q>.
+      <em>ADEEM PUCP Talk</em>, March 12th, 2024.
+      `,
+
+      `I. Perez Avellaneda, <q>Reachability of nonlinear systems via Optimization of Chen-Fliess series</q>.
+      <em>Old Dominion University ECE Graduate Seminar</em>, November 10th, 2023.
+      `,
+      
       `I. Perez Avellaneda, <q>Backward and Inner Approximation of Output Reachable sets via Chen-Fliess Series</q>.
       <em>58th Annual Allerton Conference on Communication, Control, and Computing</em>, Monticello, Illinois, September 29th, 2023. <a href="https://easychair.org/smart-program/Allerton2023/" target="_blank" class="bodylink"> [link]</a>
       `,

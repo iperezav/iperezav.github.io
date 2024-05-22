@@ -121,6 +121,7 @@
         ]
 
         var Project3Items=[
+          ThesisItems[0],
           conferenceItems[0],
           JournalItems[1],
         ]

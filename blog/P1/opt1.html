@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <title> Ivan Perez Avellaneda </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+
+
+</head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });
+</script>
+
+
+<body>
+
+
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button oldpadding w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
+      <a href="iperezav.github.io/../../../index.html#projects" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROJECTS</a>
+      <a href="iperezav.github.io/../../../index.html#publications" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PUBLICATIONS</a>
+      <a href="iperezav.github.io/../../../index.html#software" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SOFTWARE</a>
+      <a href="iperezav.github.io/../../../index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+      <a href="opt1.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BLOG</a>
+      <div class="w3-dropdown-hover w3-hide-small">
+      </div>
+    </div>
+</div>
+  
+  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
+    <a href="iperezav.github.io/../../../index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
+    <a href="iperezav.github.io/../../../index.html#publications" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PUBLICATIONS</a>
+    <a href="iperezav.github.io/../../../index.html#software" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SOFTWARE</a>
+    <a href="iperezav.github.io/../../../index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+    <a href="opt1.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BLOG</a>
+  </div>
+
+
+
+<!-- Title and Paragraph -->
+     <!-- Projects section -->
+     <div class="w3-container w3-content w3-padding-64" id="opt">
+        <div class="w3-content" style="max-width:900px"> 
+            <h1 class="w3-center" style="padding-top: 80px;"><b>Nonlinear Optimization</b></h1>
+
+            <p class="w3-center"><em>Ivan Perez Avellaneda, PhD</em></p>
+
+            <p class="w3-center"><em>April 26th, 2025</em></p>
+
+            <h2>Line Search Methods</h2>
+
+            <h3>Inexact Search</h3>
+            <p>     </p>
+            \[ 
+              x_{k+1} = x_{k} - \gamma \nabla f(x_{k})
+            \]
+
+
+            <div class="proposition">
+              <p><strong>Proposition:</strong>  
+                The solution to the following problem:
+                \[ 
+                \min_{h} f(x) + \nabla f(x)\cdot h + \cdots, \quad \text{s.t } ||h|| \leq 1 
+                \]
+                is given by \( h = \nabla f(x)/||\nabla f(x)|| \).
+              </p>
+            </div>
+
+            <div class="proof">
+              <p><strong>Proof:</strong> 
+                Using the Taylor approximation, we solve the following problem:
+                \[ 
+                \min_{h} f(x) + \nabla f(x)\cdot h, \quad \text{s.t } ||h|| \leq 1 
+                \]
+                Use \(\nabla f(x)\cdot h = ||\nabla f(x)||\ ||h||\cos(\theta)\) where \(\theta\) 
+                is the angle between the vectors \(\nabla f(x)\) and \(h\). 
+                The minimum is achieved when \(\cos(\theta) = -1\), i.e. \(h = -k\nabla f(x) \) with \(k \geq 0\).
+                Take \(k = 1/||\nabla f(x)||\) then \( h = \nabla f(x)/||\nabla f(x)|| \) to satisfy the constraint.</p>
+              <p style="text-align: right;">∎</p>
+            </div>
+          
+
+            <div class="w3-center">
+              <figure>
+               <img  src="graphs/optimization_path.gif" class="w3-round w3-image" alt="Ivan Perez Avellaneda" width="600" height="600" >
+               <figcaption>Fig.3 - Commutative diagram between the G&acircteaux derivative and the language derivative.</figcaption>
+              </figure>
+            </div>
+
+
+            <p>Here is some code:</p>
+            <div>
+            <pre data-caption = "plot_data.py" data-hi-lines = "[]" data-language = "python" style = "line-height: 125%; background: #f8f8f8; color: #203240;">
+              <span></span>
+              <span style = "color: #008000; font-weight: bold;">for</span> reading_set <span style = "color: #AA22FF; font-weight: bold;">in</span>
+              " reading_sets: ph "
+              <span style = "color: #666666">.</span>
+              "plot_data_statis(reading_set, known_slides)"
+              <span style = "color: #666666">=</span>
+              "known_slides, critical_points"
+                <span style = "color: #666666">=</span>
+              "critical_points ) a_utils"
+              <span style = "color: #666666">.</span>
+              "summarize_results()"
+            </pre>
+          </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>

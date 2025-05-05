@@ -48,3 +48,44 @@ figure img {
   max-width: 100%;
   overflow-x: auto;
 }
+
+.code-container {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+}
+.code-header {
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.language-badge {
+  background-color: #3572A5;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+pre {
+  margin: 0;
+  padding: 15px;
+  overflow-x: auto;
+}
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  color: #f8f8f2;
+  line-height: 1.5;
+}
+.comment { color: #6A9955; }
+.string { color: #ce9178; }
+.keyword { color: #569cd6; }
+.function { color: #dcdcaa; }
+.number { color: #b5cea8; }
+.decorator { color: #d7ba7d; }
+.class { color: #4ec9b0; }
+.constant { color: #4fc1ff; }

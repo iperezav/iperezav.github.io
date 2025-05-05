@@ -26,3 +26,25 @@ hr {
 }
 
 
+img.w3-image {
+  height: auto !important; /* Force aspect ratio preservation */
+  display: block; /* Prevents inline spacing issues */
+  max-width: 100%; /* Ensure images never overflow their containers */
+}
+
+/* Improve figure responsiveness */
+figure {
+  margin: 1em 0;
+  width: 100%;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive container for MathJax equations */
+.math-container {
+  max-width: 100%;
+  overflow-x: auto;
+}

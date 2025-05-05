@@ -3,15 +3,26 @@
 <head>
 
 
-    <title> Ivan Perez Avellaneda </title>
+    <title> Ivan Perez Avellaneda, Ph.D. </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styles.css">
 
 
+
+    <script>
+      function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else { 
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
 
 </head>
 
@@ -33,7 +44,8 @@
 <div class="w3-top">
     <div class="w3-bar w3-black w3-card">
       <a class="w3-bar-item w3-button oldpadding w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
+      <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
+      <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large">Ivan Perez Avellaneda, Ph.D.</a>
       <a href="iperezav.github.io/../../../index.html#projects" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROJECTS</a>
       <a href="iperezav.github.io/../../../index.html#publications" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PUBLICATIONS</a>
       <a href="iperezav.github.io/../../../index.html#software" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SOFTWARE</a>
@@ -46,12 +58,16 @@
   
   <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
   <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-    <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
-    <a href="iperezav.github.io/../../../index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROJECTS</a>
-    <a href="iperezav.github.io/../../../index.html#publications" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PUBLICATIONS</a>
-    <a href="iperezav.github.io/../../../index.html#software" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SOFTWARE</a>
-    <a href="iperezav.github.io/../../../index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
-    <a href="opt1.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BLOG</a>
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-left w3-hide-large w3-hide-medium" onclick="openNav()">
+      <i class="fa fa-bars"></i>
+   </a>
+    <a href="iperezav.github.io/../../../index.html#about" class="w3-bar-item w3-button w3-padding-large" onclick="openNav()">ABOUT</a>
+    <a href="iperezav.github.io/../../../index.html#projects" class="w3-bar-item w3-button w3-padding-large" onclick="openNav()">PROJECTS</a>
+    <a href="iperezav.github.io/../../../index.html#publications" class="w3-bar-item w3-button w3-padding-large" onclick="openNav()">PUBLICATIONS</a>
+    <a href="iperezav.github.io/../../../index.html#software" class="w3-bar-item w3-button w3-padding-large" onclick="openNav()">SOFTWARE</a>
+    <a href="iperezav.github.io/../../../index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="openNav()">CONTACT</a>
+    <a href="opt1.html" class="w3-bar-item w3-button w3-padding-large" onclick="openNav()">BLOG</a>
   </div>
 
 
@@ -62,7 +78,7 @@
         <div class="w3-content" style="max-width:900px"> 
             <h1 class="w3-center" style="padding-top: 80px;"><b>Nonlinear Optimization</b></h1>
 
-            <p class="w3-center"><em>Ivan Perez Avellaneda, PhD</em></p>
+            <p class="w3-center"><em>Ivan Perez Avellaneda, Ph.D.</em></p>
 
             <p class="w3-center"><em>April 26th, 2025</em></p>
 
@@ -98,25 +114,64 @@
               <p style="text-align: right;">∎</p>
             </div>
           
-
             <div class="w3-center">
-              <figure>
-               <img  src="graphs/optimization_path.gif" class="w3-round w3-image" alt="Ivan Perez Avellaneda" width="600" height="600" >
-               <figcaption>Fig.3 - Commutative diagram between the G&acircteaux derivative and the language derivative.</figcaption>
+              <figure style="text-align: center; margin-left: auto; margin-right: auto;">
+                <img src="graphs/optimization_path.gif" class="w3-round w3-image" alt="Ivan Perez Avellaneda" 
+                     style="width:100%; max-width:600px; display: block; margin: 0 auto;">
+                <figcaption>Fig.1 - Reachable set overestimation by the Mixed-Monotonicity, Gradient Descent and 
+                Input-Output Mixed-Monotonicity approaches.</figcaption>
               </figure>
             </div>
+
 
 
             <p>Here is some code:</p>
             <div class="code-container">
               <div class="code-header">
-                  <span>plot_data.py</span>
+                  <span>example.py</span>
                   <span class="language-badge">Python</span>
               </div>
-              <pre><code><span class="keyword">for</span> reading_set <span class="keyword">in</span> reading_sets:
-              ph.plot_data_stats(reading_set, known_slides)
-              known_slides, critical_points = critical_points
-              a_utils.summarize_results()</code></pre>
+              <pre><code><span class="keyword">import</span> math
+      <span class="keyword">from</span> typing <span class="keyword">import</span> List, Dict, Optional
+      
+      <span class="comment"># This is a sample Python class demonstrating various features</span>
+      <span class="decorator">@dataclass</span>
+      <span class="keyword">class</span> <span class="class">DataProcessor</span>:
+          name: <span class="constant">str</span>
+          values: <span class="constant">List</span>[<span class="constant">float</span>]
+          options: <span class="constant">Dict</span>[<span class="constant">str</span>, <span class="constant">bool</span>] = field(default_factory=dict)
+          
+          <span class="keyword">def</span> <span class="function">process_data</span>(self) -> <span class="constant">Optional</span>[<span class="constant">float</span>]:
+              <span class="string">"""
+              Process the values list and return statistical information
+              based on the options provided.
+              """</span>
+              <span class="keyword">if</span> <span class="keyword">not</span> self.values:
+                  <span class="keyword">return</span> <span class="constant">None</span>
+                  
+              results = []
+              
+              <span class="keyword">if</span> self.options.get(<span class="string">"calculate_mean"</span>, <span class="constant">False</span>):
+                  mean = sum(self.values) / len(self.values)
+                  results.append(mean)
+                  
+              <span class="keyword">if</span> self.options.get(<span class="string">"calculate_std_dev"</span>, <span class="constant">False</span>):
+                  mean = sum(self.values) / len(self.values)
+                  variance = sum((x - mean) ** <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> self.values) / len(self.values)
+                  std_dev = math.sqrt(variance)
+                  results.append(std_dev)
+                  
+              <span class="keyword">return</span> sum(results) <span class="keyword">if</span> results <span class="keyword">else</span> <span class="constant">None</span>
+              
+      <span class="comment"># Example usage</span>
+      <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+          processor = DataProcessor(
+              name=<span class="string">"Temperature Analysis"</span>,
+              values=[<span class="number">21.5</span>, <span class="number">22.1</span>, <span class="number">23.4</span>, <span class="number">20.8</span>, <span class="number">21.9</span>],
+              options={<span class="string">"calculate_mean"</span>: <span class="constant">True</span>, <span class="string">"calculate_std_dev"</span>: <span class="constant">True</span>}
+          )
+          result = processor.process_data()
+          <span class="keyword">print</span>(<span class="string">f"Processing result: {result:.2f}"</span>)</code></pre>
           </div>
 
 

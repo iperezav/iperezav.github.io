@@ -1,6 +1,7 @@
 ---
 # Ensure that this title is the same as the one in `myst.yml`
-title: 'CFSpy: A Python Library for the Computation of Chen-Fliess Series'
+title: 'SciPy Optimize and Reachability of Nonlinear Systems'
+#'CFSpy: A Python Library for the Computation of Chen-Fliess Series'
 abstract: |
   In this paper, CFSpy a package in Python that numerically computes Chen-Fliess series
   is presented. The reachable sets of non-linear systems are

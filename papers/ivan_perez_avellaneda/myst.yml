@@ -4,7 +4,7 @@ project:
   # Update this to match `scipy-2025-<folder>` the folder should be `<firstname_surname>`
   id: scipy-2025-myst_template
   # Ensure your title is the same as in your `main.md`
-  title: 'SciPy Optimize and Reachability of Nonlinear Systems'
+  title: 'Paper: SciPy Optimize and Reachability of Nonlinear Systems'
   #'CFSpy: A Python Library for the Computation of Chen-Fliess Series'
   # subtitle:
   description: Add a two sentence description about your article.

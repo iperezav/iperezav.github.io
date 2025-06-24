@@ -1,7 +1,7 @@
 ---
 # Ensure that this title is the same as the one in `myst.yml`
-title: 'Paper: SciPy Optimize and Reachability of Nonlinear Systems'
-#'CFSpy: A Python Library for the Computation of Chen-Fliess Series'
+#title: 'Paper: SciPy Optimize and Reachability of Nonlinear Systems'
+title: 'CFSpy: A Python Library for the Computation of Chen-Fliess Series'
 abstract: |
   In this paper, CFSpy a package in Python that numerically computes Chen-Fliess series
   is presented. The reachable sets of non-linear systems are
@@ -20,19 +20,47 @@ abstract: |
 
 ## Introduction
 
-Control systems describe the dynamics of many of the mechanisms in the engineering field. 
-In [@Qasem2024] the inverted pendulum is described as control system taking ... as the inputs
-and in [@He2024], the planar vertical take-off and landing (PVTOL) which describes
-a simplified unmanned aircraft vehicle (UAV) model is used to analyze the reachability of
-the system.
 
-A Chen-Fliess series provides a local representation of the output of 
+Control systems describe the dynamics of mechanisms driven by an input vector. 
+In engineering, many of these systems are affected by disturbances or are complex
+enough that a simplified version of the model is used instead. This endows the
+systems with uncertainty and impairs their safety operations.
+The reachable set is a tool that helps analyse the safety-related properties.
+For example, the overestimation of the reachable set is associated to safety and obstable avoidance
+and the underestimation to the *liveness* of the system [@Chen2015;@Seo2019]. 
+
+Different methodologies are used to compute the reachable set or an approximation of it.
+Among the most popular techniques are the Hamilton-Jacobi framework (HJ) [@Bansal2017;@Mitchell2007;@Mitchell2005] 
+which uses game theory between
+two players where one player drives the system away from
+the goal while the other moves it towards the goal, contraction-based which uses contraction theory
+[@Maidens2015;@Bullo2022] on the Jacobian of the vector field 
+of the system, interval-based which uses interval
+analysis and monotone systems [@Scott2013;@Meyer2019;@Jafarpour2024], and mixed-monotonicity [@Coogan2020]. 
+There is also the simulation-based rechability [@Fan2017;@Huang2012]
+and recently Chen-Fliess series have been used for this purpose. 
+Most of the techniques are affected by the *curse of dimensionality*. 
+
+To tackle the problem of the complexity as the dimension increases, in @He2024,
+the authors use HJ and a way to decompose the projections of the system.
+The use of zonotopes in the interval approach has been shown to have
+low complexity.
+
+%In [@Qasem2024] the inverted pendulum is described as control system taking ... as the inputs
+%and in [@He2024], the planar vertical take-off and landing (PVTOL) which describes
+%a simplified unmanned aircraft vehicle (UAV) model is used to analyze the reachability of
+%the system.
+
+A Chen-Fliess (CFS) series provides a local representation of the output of 
 a non-linear control-affine system in terms of its input. 
 Given its coefficients, the series overlooks the dynamics when computing the output. 
 This is important in cases where the system is unknown or 
-affected by uncertainty.
+affected by uncertainty. In @Perez2022, a version of noncommutative differential calculus
+was developed to represent the derivative of a CFS. 
+This was used to perform reachability analysis by applying
+second degree optimization of CFS in @Perez2023.
 
-A Python library for the computation of Chen-Fliess series is introduced
+In the present work, a Python library for the computation of Chen-Fliess series is introduced
 and it is used to perform reachability analysis of non-linear system by
 assuming the input functions can be piece-wise approximated. A polynomial
 of the Chen-Fliess series is obtained and then optimized to get the

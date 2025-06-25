@@ -12,9 +12,8 @@ abstract: |
   to left, we allow the broadcasting of the computation of the iterative
   integral to all permutations of a length. Assuming the input
   is sufficiently well approximated by piece-wise step functions in 
-  a fine-enough partition of the time interval, the minimum boundary box (MBB) of a 
-  rechable set is computed by means of polynomials. To solve the optimization problem,
-  the SciPy library is used.
+  a fine partition of the time interval, the minimum bounding box of a 
+  rechable set is computed by means of polynomials in terms of the inputs. To solve the optimization problem, the SciPy library is used.
 
 ---
 
@@ -25,8 +24,10 @@ Control systems describe the dynamics of mechanisms driven by an input vector.
 In engineering, many of these systems are affected by disturbances or are complex
 enough that a simplified version of the model is used instead. This endows the
 systems with uncertainty and impairs their safety operations.
-The reachable set is a tool that helps analyse the safety-related properties.
-For example, the overestimation of the reachable set is associated to safety and obstable avoidance
+The reachable set is a tool that helps analyse safety-related properties.
+For a given final time, it is defined as the set of all outputs 
+as a response of the system to a given set of initial inputs and states.
+The overestimation of the reachable set is associated to safety and obstable avoidance
 and the underestimation to the *liveness* of the system [@Chen2015;@Seo2019]. 
 
 Different methodologies are used to compute the reachable set or an approximation of it.
@@ -35,16 +36,23 @@ which uses game theory between
 two players where one player drives the system away from
 the goal while the other moves it towards the goal, contraction-based which uses contraction theory
 [@Maidens2015;@Bullo2022] on the Jacobian of the vector field 
-of the system, interval-based which uses interval
-analysis and monotone systems [@Scott2013;@Meyer2019;@Jafarpour2024], and mixed-monotonicity [@Coogan2020]. 
+of the system, set-based that uses different set representations,
+monotone systems [@Scott2013;@Meyer2019;@Jafarpour2024], and mixed-monotonicity [@Coogan2020]. 
 There is also the simulation-based rechability [@Fan2017;@Huang2012]
 and recently Chen-Fliess series have been used for this purpose. 
-Most of the techniques are affected by the *curse of dimensionality*. 
 
-To tackle the problem of the complexity as the dimension increases, in @He2024,
-the authors use HJ and a way to decompose the projections of the system.
-The use of zonotopes in the interval approach has been shown to have
-low complexity.
+An important problem in the computation of the 
+reachable set is the *curse of dimensionality*. 
+This consists in the increasing of the complexity of the algorithm
+as the dimension increases. 
+To tackle this in HJ-based methods, in @He2024,
+the authors use a new approach that requires
+the definition of an admissible control set 
+to provide control policies that are 
+consistent on the coupled subsystems. This fixes an incosistency
+issue with the controls called the *leaking corner*. 
+For set-based methods, the use of zonotopes 
+is known to have low complexity [@Althoff2016].
 
 %In [@Qasem2024] the inverted pendulum is described as control system taking ... as the inputs
 %and in [@He2024], the planar vertical take-off and landing (PVTOL) which describes
@@ -52,23 +60,33 @@ low complexity.
 %the system.
 
 A Chen-Fliess (CFS) series provides a local representation of the output of 
-a non-linear control-affine system in terms of its input. 
+a non-linear control-affine system in terms of its input [@Fliess81]. 
 Given its coefficients, the series overlooks the dynamics when computing the output. 
 This is important in cases where the system is unknown or 
-affected by uncertainty. In @Perez2022, a version of noncommutative differential calculus
+affected by uncertainty. Then the coefficients are learned by
+using online learning methods [@Venkatesh2019]. In @Perez2022, a version of noncommutative differential calculus
 was developed to represent the derivative of a CFS. 
 This was used to perform reachability analysis by applying
 second degree optimization of CFS in @Perez2023.
 
-In the present work, a Python library for the computation of Chen-Fliess series is introduced
+In the present work, CFSpy [@Perez2024], a Python library for the computation of Chen-Fliess series is introduced
 and it is used to perform reachability analysis of non-linear system by
 assuming the input functions can be piece-wise approximated. A polynomial
 of the Chen-Fliess series is obtained and then optimized to get the
-points of an overstimation of the reachable set.
+points of an overstimation of the reachable set. 
+The SciPy package [@scipy] is used to performed the optimization.
+
+The outline of the paper is the following: in [](#sec_preliminaries),
+the preliminary concepts and results in reachability, formal languages and CFS
+are presented. In [](#sec_results), the algorithms for the computation of
+the iterative integrals and the lie derivatives are provided which are 
+the components of CFS. Then, the numerical computation of CFS is shown
+and examples are given. Finally, in [](#sec_conclusions), the conclusions and
+future work are described.
 
 
-
-## Preliminaries
+(sec_preliminaries)=
+## Preliminaries 
 
 In the current section,  we give the definitions and results used to explain
 our main contribution: the algorithms to compute Chen-Fliess series and how these

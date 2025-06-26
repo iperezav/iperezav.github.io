@@ -88,10 +88,9 @@ future work are described.
 (sec_preliminaries)=
 ## Preliminaries 
 
-In the current section,  we give the definitions and results used to explain
-our main contribution: the algorithms to compute Chen-Fliess series and how these
-are used to analyze the reachability of control-affine non-linear systems. For this, in [](#sec_language), concepts from formal language
-theory are presented to characterize Chen-Fliess series which are defined in [](#sec_CFS). These provide a
+In the current section,  we give the definitions and results needed to explain
+our main contribution: the CFSpy Python package. For this, in [](#sec_language), concepts from formal language
+theory are presented to characterize CFS which are defined in [](#sec_CFS). These provide a
 representation of the output of a nonlinear-affine systems in terms of iterated integrals
 of the input. Then, in [](#sec_matrixop), to explain better the algorithm, we use tools from linear algebra and matrix operations.
 
@@ -447,6 +446,7 @@ to obtain numerically the list of $E_{\eta}[u]$ for $\eta\in X^3$
 ```
 
 
+
 (sec_compiterint)=
 ### Computation of Iterated Integrals
 
@@ -496,6 +496,69 @@ For $k$ in $\{1,\cdots, N-1\}$ do:
 >    4. $U_{k+1} \leftarrow [\textbf{0}\ |\ S(M)_{:,\hat{T}}\Delta]$
 >    5. $\mathcal{U} \leftarrow U_k \oplus_{v} \mathcal{U}$
 :::
+
+
+The Python code of the above algorithm is the following:
+
+```{code} python
+:label: my-program
+:caption: Iterated Integrals
+def iter_int(u,t0, tf, dt, Ntrunc):
+    import numpy as np
+
+    # The length of the partition of time is computed
+    length_t = int((tf-t0)//dt+1)
+    
+    if u.shape[1] != length_t:
+        raise ValueError("The length of the input, %s, must be int((tf-t0)//dt+1) = %s." %(u.shape[1], length_t))
+
+    t = np.linspace(t0, tf, length_t)
+    # The input u_0 associated with the letter x_0 is generated.
+    u0 = np.ones(length_t)
+
+    u = np.vstack([u0, u])
+    
+    # The number of rows which are equal to the number of total input functions is obtained.
+    num_input = int(np.size(u,0))
+
+    total_iterint = num_input*(1-pow(num_input,Ntrunc))/(1-num_input)
+    # This is transformed into an integer.
+    total_iterint = int(total_iterint)
+    
+    Etemp = np.zeros((total_iterint,length_t))
+
+    ctrEtemp = np.zeros(Ntrunc+1)
+
+    for i in range(Ntrunc):
+        ctrEtemp[i+1] = ctrEtemp[i]+pow(num_input,i+1)
+
+    sum_acc = np.cumsum(u, axis = 1)*dt
+
+    Etemp[:num_input,:] = np.hstack((np.zeros((num_input,1)), sum_acc[:,:-1]))
+
+    for i in range(1,Ntrunc):
+        # start_prev_block = num_input + num_input**2 + ... + num_input**(i-1)
+        start_prev_block = int(ctrEtemp[i-1])
+        # end_prev_block = num_input + num_input**2 + ... + num_input**i
+        end_prev_block = int(ctrEtemp[i])
+        # end_current_block = num_input + num_input**2 + ... + num_input**(i+1)
+        end_current_block = int(ctrEtemp[i+1])
+        # num_prev_block = num_input**i
+        num_prev_block = end_prev_block - start_prev_block
+        # num_current_block = num_input**(i+1)
+        num_current_block = end_current_block - end_prev_block
+        
+        U_block = u[np.repeat(range(num_input), num_prev_block), :]
+        
+        prev_int_block = np.tile(Etemp[start_prev_block:end_prev_block,:],(num_input,1))
+  
+        current_int_block = np.cumsum(U_block*prev_int_block, axis = 1)*dt
+        # Stacks the block of iterated integrals of word length i+1 into Etemp
+        Etemp[end_prev_block:end_current_block,:] = np.hstack((np.zeros((num_current_block,1)), current_int_block[:,:-1]))
+
+    itint = Etemp
+    return itint  
+```
 
 
 (sec_complie)=
@@ -550,12 +613,72 @@ For $k$ in $\{1,\cdots, N-1\}$ do:
 :::
 
 
+The Python code of the above algorithm is the following:
+
+```{code} python
+:label: my-program
+:caption: Lie derivatives
+def iter_lie(h,vector_field,z,Ntrunc):
+    import numpy as np
+    import sympy as sp
+    
+    # The number of vector fields is obtained.
+    # num_vfield = m
+    num_vfield = np.size(vector_field,1)
+    
+    # total_lderiv = num_input + num_input**2 + ... + num_input**Ntrunc
+    total_lderiv = num_vfield*(1-pow(num_vfield, Ntrunc))/(1-num_vfield)
+    total_lderiv = int(total_lderiv)
+    
+    # The list that will contain all the Lie derivatives is initiated. 
+    Ltemp = sp.Matrix(np.zeros((total_lderiv, 1), dtype='object'))
+    ctrLtemp = np.zeros((Ntrunc+1,1), dtype = 'int')
+    
+    # ctrLtemp[k] = num_input + num_input**2 + ... + num_input**k,  1<=k<=Ntrunc
+    for i in range(Ntrunc):
+        ctrLtemp[i+1] = ctrLtemp[i] + num_vfield**(i+1)
+    
+    
+    # The Lie derivative L_eta h(z) of words eta of length 1 are computed 
+    LT = sp.Matrix([h]).jacobian(z)*vector_field
+
+    # Transforms the lie derivative from a row vector to a column vector
+    LT = LT.reshape(LT.shape[0]*LT.shape[1], 1)
+    
+    # Adds the computed Lie derivatives to a repository
+    Ltemp[:num_vfield, 0] = LT
+
+    for i in range(1, Ntrunc):
+        # start_prev_block = num_input + num_input**2 + ... + num_input**(i-1)
+        start_prev_block = int(ctrLtemp[i-1])
+        # end_prev_block = num_input + num_input**2 + ... + num_input**i
+        end_prev_block = int(ctrLtemp[i])
+        # end_current_block = num_input + num_input**2 + ... + num_input**(i+1)
+        end_current_block = int(ctrLtemp[i+1])
+        # num_prev_block = num_input**i
+        num_prev_block = end_prev_block - start_prev_block
+        # num_current_block = num_input**(i+1)
+        num_current_block = end_current_block - end_prev_block
+
+        LT = Ltemp[start_prev_block:end_prev_block,0]
+        
+        LT = LT.jacobian(z)*vector_field
+        # Transforms the lie derivative from a row vector to a column vector
+        
+        LT = LT.reshape(LT.shape[0]*LT.shape[1], 1)
+        # Adds the computed Lie derivatives to the repository
+        Ltemp[end_prev_block:end_current_block,:]=LT
+
+    return Ltemp 
+```
+
+
 (sec_numCFS)=
 ### Numerical Computation of Chen-Fliess Series
 
 
 
-:::{prf:theorem} Orthogonal-Projection-Theorem
+:::{prf:theorem} 
 :label: my-theorem
 
 From the previous section, we have
@@ -569,8 +692,95 @@ F_c^N[u](t) = \mathcal{U}\cdot \mathcal{G}
 
 %### CFSpy Package
 
-%(sec_simulations)=
-%## Simulations
+(sec_simulations)=
+## Simulations
+
+The following block of code uses CFSpy to compute the CFS
+of a Lotka Volterra system.
+
+```{code} python
+:label: my-program
+:caption: CFS Computation
+from CFS import iter_int, iter_lie, single_iter_int, single_iter_lie
+
+import numpy as np
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+import sympy as sp
+
+# Define the Lotka-Volterra system
+def system(t, x, u1_func, u2_func):
+    x1, x2 = x
+    u1 = u1_func(t)
+    u2 = u2_func(t)
+    dx1 = -x1*x2 +  x1 * u1
+    dx2 = x1*x2 - x2* u2
+    return [dx1, dx2]
+
+# Input 1
+def u1_func(t):
+    return np.sin(t)
+
+# Input 2
+def u2_func(t):
+    return np.cos(t)
+
+# Initial condition
+x0 = [1/3,2/3]
+
+# Time range
+t0 = 0
+tf = 3
+dt = 0.001
+t_span = (t0, tf)
+
+# Simulation of the system
+solution = solve_ivp(system, t_span, x0, args=(u1_func, u2_func), dense_output=True)
+
+# Partition of the time interval
+t = np.linspace(t_span[0], t_span[1], int((tf-t0)//dt+1))
+y = solution.sol(t)
+
+# Define the symbolic variables
+x1, x2 = sp.symbols('x1 x2')
+x = sp.Matrix([x1, x2])
+
+
+# Define the system symbolically
+g = sp.transpose(sp.Matrix([[-x1*x2, x1*x2], [x1, 0], [0, - x2]]))
+
+# Define the output symbolically
+h = x1
+
+# The truncation of the length of the words that index the Chen-Fliess series
+Ntrunc = 4
+
+# Coefficients of the Chen-Fliess series evaluated at the initial state
+Ceta = np.array(iter_lie(h,g,x,Ntrunc).subs([(x[0], 1/3),(x[1], 2/3)]))
+
+# inputs as arrays
+u1 = np.sin(t)
+u2 = np.cos(t)
+
+# input array
+u = np.vstack([u1, u2])
+
+# List of iterated integral
+Eu = iter_int(u,t0, tf, dt, Ntrunc)
+
+# Chen-Fliess series
+F_cu = x0[0]+np.sum(Ceta*Eu, axis = 0)
+
+# Graph of the output and the Chen-Fliess series
+plt.figure(figsize = (12,5))
+plt.plot(t, y[0].T)
+plt.plot(t, F_cu, color='red', linewidth=5, linestyle = '--', alpha = 0.5)
+plt.xlabel('$t$')
+plt.ylabel('$x_1$')
+plt.legend(['Output of the system','Chen-Fliess series'])
+plt.grid()
+plt.show()
+```
 
 
 %(sec_futurework)=

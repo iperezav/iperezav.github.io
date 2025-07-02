@@ -34,9 +34,9 @@
     ];
 
     var TalksItems = [
-      `I. Perez Avellaneda, <q>CFSpy: a Python Library for the Computation of Chen-Fliess Series.</q>.
-      <em>SciPy 2025</em>, July 9th, 2025.<a href="https://cfp.scipy.org/scipy2025/talk/WDUNLN/" target="_blank" class="bodylink"> [link]</a>
-      <a href="Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>
+      `I. Perez Avellaneda, <q>CFSpy: a Python Library for the Computation of Chen-Fliess Series</q>.
+      <em>SciPy 2025</em>, Tacoma, Washington, July 9th, 2025.<a href="https://cfp.scipy.org/scipy2025/talk/WDUNLN/" target="_blank" class="bodylink"> [link]</a>
+      <a href="SciPy2025_Ivan_Perez_Avellaneda.pdf" target="_blank" class="bodylink"> [poster]</a>
       `,
       `I. Perez Avellaneda, <q>Data-Driven Reachability of Non-Linear Systems via Optimization of Chen-Fliess Series</q>.
       <em>ADEEM PUCP Talk</em>, March 12th, 2024.

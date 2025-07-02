@@ -7,7 +7,7 @@ project:
   #title: 'Paper: SciPy Optimize and Reachability of Nonlinear Systems'
   title:'CFSpy: A Python Library for the Computation of Chen-Fliess Series'
   # subtitle:
-  description: Add a two sentence description about your article.
+  description: the CFSpy Python package is presented to compute reachable sets of nonlinear control-affine systems. The optimization part is done using SciPy Optimize.
   # Authors should have affiliations, emails and ORCIDs if available
   authors:
     - name: Ivan Perez Avellaneda
@@ -46,6 +46,9 @@ project:
         - jupyter
         - sklearn1
         - sklearn2
+        - Mitchell2007
+        - Perez2024
+        - Bullo2022
   exports:
     - id: pdf
       format: typst

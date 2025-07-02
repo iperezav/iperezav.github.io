@@ -89,10 +89,12 @@ future work are described.
 ## Preliminaries 
 
 In the current section,  we give the definitions and results needed to explain
-our main contribution: the CFSpy Python package. For this, in [](#sec_language), concepts from formal language
+our main contribution: the CFSpy Python package. For this, in [](#sec_matrixop), 
+tools from linear algebra and matrix operations are presented to explain the algorithms. 
+In [](#sec_language), concepts from formal language
 theory are presented to characterize CFS which are defined in [](#sec_CFS). These provide a
 representation of the output of a nonlinear-affine systems in terms of iterated integrals
-of the input. Then, in [](#sec_matrixop), to explain better the algorithm, we use tools from linear algebra and matrix operations.
+of the input.
 
 (sec_matrixop)=
 ### Matrix Operations
@@ -205,8 +207,19 @@ A\oplus_{v} B =
 ```
 :::
 
+
+
 (sec_language)= 
 ### Formal Language Theory
+
+The CFS is indexed by the words of any length.
+Formally, the elements of this index are generated
+by an algebraic structure: free monoid. 
+This object is explained in the 
+formal language theory.
+In the present section, concepts of
+formal language theory are presented. 
+
 
 :::{prf:definition} Monoid
 :label: def_monoid
@@ -493,7 +506,7 @@ For $k$ in $\{1,\cdots, N-1\}$ do:
 >    1. $V \leftarrow \textbf{1}_{m} \otimes U_k$ 
 >    2. $v \leftarrow [I_{m}\otimes \textbf{1}_{N_{U_{k}}}] u$ 
 >    3. $M \leftarrow v\odot V$
->    4. $U_{k+1} \leftarrow [\textbf{0}\ |\ S(M)_{:,\hat{T}}\Delta]$
+>    4. $U_{k+1} \leftarrow [\textbf{0}\ |\ S(M)_{:,-\hat{T}}\Delta]$
 >    5. $\mathcal{U} \leftarrow U_k \oplus_{v} \mathcal{U}$
 :::
 

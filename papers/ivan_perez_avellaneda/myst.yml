@@ -49,6 +49,7 @@ project:
         - Mitchell2007
         - Perez2024
         - Bullo2022
+        - Salomaa1973
   exports:
     - id: pdf
       format: typst

@@ -212,13 +212,17 @@ A\oplus_{v} B =
 (sec_language)= 
 ### Formal Language Theory
 
-The CFS is indexed by the words of any length.
-Formally, the elements of this index are generated
-by an algebraic structure: free monoid. 
-This object is explained in the 
-formal language theory.
+The CFS is indexed by words of any length.
+Formally, these words are elements
+of an algebraic structure called *free monoid*
+where the *alphabet* is a subset that along with
+the *concatenation* operation act as the generator.
+Words are the noncommutative counterpart of monomials 
+and they extend as the basis of polynomials and then to power series.
+These are important in the theory of CFS since 
+power series are isomorphic to CFS.
 In the present section, concepts of
-formal language theory are presented. 
+formal language theory [@Salomaa1973] are presented. 
 
 
 :::{prf:definition} Monoid
@@ -275,11 +279,35 @@ an *algebra* structure by adding the the *shuffle* operator.
 (sec_CFS)=
 ### Chen-Fliess Series
 
+CFS has its roots in the works of [@Chen1957] and [@Fliess81]
+and provide an input-output representation of nonlinear control-affine
+system. They are defined in terms of iterated integrals.
+To identify them with a system, the coefficients are written
+in terms of Lie derivatives of the vector field. In the current section,
+The CFS are presented.
+
+By a nonlinear control-affine system, we refer to the following
+set of equations:
+
+$$
+\label{nonlinsys}
+\dot{z} &= g_0(z) + \sum_{i = 1}^{m} g_i(z) u_i\\
+y &= h(z)
+$$
+where $z = (z_1, \cdots, z_n)$ is the vector state of the system, $u= (u_1, \cdots, u_m)$ is the control input vector of the system and
+$y$ is the output.
+
+The iterated integral associated with the word index $\xi = x_{i_1}, \cdots, x_{i_r}$
+maps each letter of an alphabet with a coordinate of the vector input function and integrates
+recursively each input coordinate in the order of the letters in the given word. Specifically, we have
+the following:
+
+
 :::{prf:definition}
 :label: def_iterint
 
 Given the free monoid $(X^*, \cdot,\empty)$, and the word $\xi = x_{i}\eta \in X^*$, the *iterative integral*
-of $u\in L^m[0, T]$ associated to $\xi$ is the function $E_{\xi}:L^m[0, T]\rightarrow C[0,T]$, described
+of $u\in L^m[0, T]$ associated to $\xi$ is the operator $E_{\xi}:L^m[0, T]\rightarrow C[0,T]$, described
 recursively by
 
 $$
@@ -295,7 +323,8 @@ E_{x_{i}\eta}[u](t) = \int_{0}^{t}u_{x_{i}}(\tau)E_{\eta}[u](\tau)d\tau
 $$
 :::
 
-This definition is naturally extended to power series
+The definition of the iterated integral associated to a word
+is naturally extended to power series in the following manner:
 
 :::{prf:definition}
 :label: def_cfs
@@ -309,28 +338,38 @@ F_c[u](t) = \sum_{\eta \in X^*} (c, \eta) E_{\eta}[u](t)
 $$
 :::
 
+The support $\text{sup}(c)$ of a formal power series $c= \sum_{\eta\in X^\ast}(c,\eta)\eta$ is the set of words $\eta\in X^\ast$
+that have non-null associated coefficients. This is, $(c,\eta)\neq 0$. Computationally, we work with 
+power series of a finite support. Specifically,
+CFS truncated to words of length $N$ denoted as $F^N_c[u](t)$. This is, the formal power series $c$ of the CFS is truncated to words
+of length $N$ and we have
 
-A control-affine non-linear system refers to the following differential equation:
 $$
-\label{nonlinsys}
-\dot{z} &= g_0(z) + \sum_{i = 1}^{m} g_i(z) u_i\\
-y &= h(z)
+\begin{align*}
+F^N_c[u](t) = \sum_{k \leq N}\sum_{\eta \in X^k} (c, \eta) E_{\eta}[u](t).
+\end{align*}
 $$
+
+Nest, to provide the association of the CFS with a nonlinear control-affine system,
+we give the defintion of a Lie derivative.
 
 
 :::{prf:definition}
 :label: def_liederiv
 
-The Lie derivative of $h$ associated to the word $\eta \in X^*$ is the following:
+Given the system in [](#nonlinsys), the Lie derivative associated to the word $\eta \in X^*$ of the function $h:\mathbb{R}^n\rightarrow \mathbb{R}$  is the following:
 
 $$
 \begin{align*}
 L_{\eta}h = L_{x_{i_1}}\cdots L_{x_{i_k}}h
 \end{align*}
 $$
+
+where we have that $L_{x_j}h = \left(\frac{\partial}{\partial x}h\right) \cdot g_j$
 :::
 
-Input-output representation of a non-linear system.
+The following result gives the conditions under which a nonlinear system
+has an input-output representation by CFS.
 
 :::{prf:theorem} Fliess, 1983
 :label: th_nonlsys_rep
@@ -463,6 +502,10 @@ to obtain numerically the list of $E_{\eta}[u]$ for $\eta\in X^3$
 (sec_compiterint)=
 ### Computation of Iterated Integrals
 
+
+The following provides a different view of [](#def_iterint) that we use later to
+compute the iterated integrals.
+
 :::{prf:definition}
 :label: def_newiterint
 
@@ -487,7 +530,9 @@ H_{x_{i_j}}(\cdot) =
 :::
 
 
-The following algorithm provides the matrix of the stacked iterative integrals:
+The following algorithm provides the matrix of the stacked iterated integrals.
+This is the list of iterated integrals associated with words of length less than 
+a certain number $N$.
 
 :::{prf:algorithm} 
 :label: matrix_iter_int
@@ -577,31 +622,8 @@ def iter_int(u,t0, tf, dt, Ntrunc):
 (sec_complie)=
 ### Computation of Lie Derivatives
 
-We need to see the previous definition iteratively as follows
-:::{prf:definition}
-:label: def_newliederiv
-
-Given the free monoid $(X^*, \cdot,\empty)$, and the word $\xi = x_{i}\eta \in X^*$, the *iterative integral*
-of $u\in L^p[0, T]$ associated to $\xi$ is the function $E[u]_{\xi}(\cdot):\mathbb{R}\rightarrow \mathbb{R}$, described
-recursively by
-
-$$
-\begin{align*}
-L_{\empty}(h) = h
-\end{align*}
-$$
-
-$$
-\begin{align*}
-L_{\eta x_{i_j}}h = L_{\eta}(L_{x_{i_j}}h)
-\end{align*}
-$$
-:::
-
-
-
-
-The following algorithm provides the list of the stacked Lie derivatives:
+Similarly to the stacked list of iterated integrals,
+the following algorithm provides the list of the stacked Lie derivatives:
 
 :::{prf:algorithm} 
 :label: matrix_lie_deriv
@@ -689,7 +711,9 @@ def iter_lie(h,vector_field,z,Ntrunc):
 (sec_numCFS)=
 ### Numerical Computation of Chen-Fliess Series
 
-
+From [](#sec_compiterint) and [](#sec_complie),
+we have the following equivalent representation of the 
+CFS truncated word length $N$:
 
 :::{prf:theorem} 
 :label: my-theorem
@@ -697,7 +721,7 @@ def iter_lie(h,vector_field,z,Ntrunc):
 From the previous section, we have
 
 ```{math}
-F_c^N[u](t) = \mathcal{U}\cdot \mathcal{G}
+F_c^N[u](t) = \mathcal{U}\odot \mathcal{G}
 ```
 
 :::

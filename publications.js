@@ -34,6 +34,9 @@
     ];
 
     var TalksItems = [
+      `I. Perez Avellaneda, <q>The Problem of Address Matching: a Journey through NLP and AI</q>.
+      <em>PyData 2025</em>, Seattle, Washington, November, 2025. (Forthcoming)
+      `,
       `I. Perez Avellaneda, <q>CFSpy: a Python Library for the Computation of Chen-Fliess Series</q>.
       <em>SciPy 2025</em>, Tacoma, Washington, July 9th, 2025.<a href="https://cfp.scipy.org/scipy2025/talk/WDUNLN/" target="_blank" class="bodylink"> [link]</a>
       <a href="SciPy2025_Ivan_Perez_Avellaneda.pdf" target="_blank" class="bodylink"> [poster]</a>

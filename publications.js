@@ -11,13 +11,13 @@
   var conferenceItems = [
     // Add more conference items on top as needed
     `<b>I. Perez Avellaneda</b>. <q>CFSpy: A Python Library for the Computation of Chen-Fliess Series</q>.
-    <em>SciPy Proceedings</em>, 2025, <a href="https://proceedings.scipy.org/articles/mfwm5796" target="_blank" class="bodylink"> [link]</a>`,
+    <em>24th annual SciPy conference</em>, Seattle, Washington, 2025. <a href="https://proceedings.scipy.org/articles/mfwm5796" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series</q>.
-    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023, <a href="https://ieeexplore.ieee.org/document/10313403" target="_blank" class="bodylink"> [link]</a>`,
+    <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023. <a href="https://ieeexplore.ieee.org/document/10313403" target="_blank" class="bodylink"> [link]</a>`,
     `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.
-    <em>62nd Conference on Decision and Control</em>, 2023, <a href="https://ieeexplore.ieee.org/document/10383539" target="_blank" class="bodylink"> [link]</a>`,
+    <em>62nd Conference on Decision and Control</em>, 2023. <a href="https://ieeexplore.ieee.org/document/10383539" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
-    <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, 2023, <a href="https://ieeexplore.ieee.org/document/10253257" target="_blank" class="bodylink"> [link]</a>.`,
+    <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, 2023. <a href="https://ieeexplore.ieee.org/document/10253257" target="_blank" class="bodylink"> [link]</a>.`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Output Reachability of Chen-Fliess series: A Newton-Raphson Approach</q>.
     <em>57th Annual Conference on Information Science and Systems</em>, Baltimore, Maryland, 2023, pp. 1-6. <a href="https://ieeexplore.ieee.org/document/10089740" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Reachability of Chen-Fliess series: A Gradient Descent Approach</q>.
@@ -40,7 +40,7 @@
       <em>PyData 2025</em>, Seattle, Washington, November, 2025. (Forthcoming)
       `,
       `I. Perez Avellaneda, <q>CFSpy: a Python Library for the Computation of Chen-Fliess Series</q>.
-      <em>SciPy 2025</em>, Tacoma, Washington, July 9th, 2025.<a href="https://cfp.scipy.org/scipy2025/talk/WDUNLN/" target="_blank" class="bodylink"> [link]</a>
+      <em>SciPy 2025: 24th annual SciPy conference</em>, Tacoma, Washington, July 9th, 2025.<a href="https://cfp.scipy.org/scipy2025/talk/WDUNLN/" target="_blank" class="bodylink"> [link]</a>
       <a href="SciPy2025_Ivan_Perez_Avellaneda.pdf" target="_blank" class="bodylink"> [poster]</a>
       `,
       `I. Perez Avellaneda, <q>Data-Driven Reachability of Non-Linear Systems via Optimization of Chen-Fliess Series</q>.

@@ -11,7 +11,7 @@
   var conferenceItems = [
     // Add more conference items on top as needed
     `<b>I. Perez Avellaneda</b>. <q>CFSpy: A Python Library for the Computation of Chen-Fliess Series</q>.
-    <em>24th annual SciPy conference</em>, Seattle, Washington, 2025. <a href="https://proceedings.scipy.org/articles/mfwm5796" target="_blank" class="bodylink"> [link]</a>`,
+    <em>24th Annual Python in Science Conference</em>, Seattle, Washington, 2025. <a href="https://proceedings.scipy.org/articles/mfwm5796" target="_blank" class="bodylink"> [link]</a>`,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series</q>.
     <em>59th Annual Allerton Conference on Communication, Control, and Computing</em>, 2023. <a href="https://ieeexplore.ieee.org/document/10313403" target="_blank" class="bodylink"> [link]</a>`,
     `L. A. Duffaut Espinosa, W.S. Gray and <b>I. Perez Avellaneda</b>. <q>Derivatives of Chen-Fliess Series with Applications to Optimal Control</q>.

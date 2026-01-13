@@ -41,7 +41,7 @@
       `,
       `I. Perez Avellaneda, <q>CFSpy: a Python Library for the Computation of Chen-Fliess Series</q>.
       <em>SciPy 2025: 24th annual SciPy conference</em>, Tacoma, Washington, July 9th, 2025.<a href="https://cfp.scipy.org/scipy2025/talk/WDUNLN/" target="_blank" class="bodylink"> [link]</a>
-      <a href="SciPy2025_Ivan_Perez_Avellaneda.pdf" target="_blank" class="bodylink"> [poster]</a>
+      <a href="pdf/SciPy2025_Ivan_Perez_Avellaneda.pdf" target="_blank" class="bodylink"> [poster]</a>
       `,
       `I. Perez Avellaneda, <q>Data-Driven Reachability of Non-Linear Systems via Optimization of Chen-Fliess Series</q>.
       <em>ADEEM PUCP Talk</em>, March 12th, 2024.
@@ -57,40 +57,40 @@
       
       `I. Perez Avellaneda, <q>An Interval Arithmetic Approach to Input-Output Reachability</q>.
       <em>7th Conference on Control Technology and Applications</em>, Bridgetown, Barbados, August 17, 2023. <a href="https://css.paperplaza.net/conferences/conferences/CCTA23/program/CCTA23_AuthorIndexWeb.html" target="_blank" class="bodylink"> [link]</a>
-      <a href="CCTA_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/CCTA_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
 
       `I. Perez Avellaneda, <q>Optimization of Chen-Fliess Series and Output Reachability of Nonlinear Systems</q>.
       <em>Student Research Conference 2023</em>, Burlington, Vermont, April 19, 2023. <a href="https://www.uvm.edu/sites/default/files/Office-of-Fellowships-Opportunities-Undergraduate-Research/SRC2023/Morning_II_Session_Final.pdf" target="_blank" class="bodylink"> [link]</a>
-      <a href="Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>`,
+      <a href="pdf/Ivan_Perez_SRC_poster.pdf" target="_blank" class="bodylink"> [poster]</a>`,
     
 
       `I. Perez Avellaneda, <q>Output Reachability of Chen-Fliess Series: a Newton-Raphson Approach</q>.
       <em>57th Annual Conference on Information Science and Systems</em>, Baltimore, Maryland, March 25, 2023. <a href="https://ciss.jhu.edu/optimization-systems-control-ii/" target="_blank" class="bodylink"> [link]</a>
-      <a href="CISS_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/CISS_2023_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
 
 
       `I. Perez Avellaneda, <q>Private Debt Control in the Peruvian Economy for the Period 1991-2014</q>.
       <em>USMP XIII Conferencia Internacional: Retos y Desafíos de la Nueva Economía 2023</em>, Lima, Peru, February 21, 2023.<a href="https://usmp.edu.pe/escuela-profesional-de-economia-realizo-el-xiii-seminario-internacional-retos-y-desafios-de-la-nueva-economia-2023/" target="_blank" class="bodylink"> [link]</a>
-      <a href="DebtControl23.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/DebtControl23.pdf" target="_blank" class="bodylink"> [slides]</a>`,
     
     
       `I. Perez Avellaneda, <q>The Problem of Stationary Points of Chen-Fliess Series</q>.
       <em>Quebec-Vermont Number Theory Seminar (unQVNTS Vermont)</em>, Burlington, Vermont, January 19, 2023. <a href="https://www.uvm.edu/~unqvnts/" target="_blank" class="bodylink"> [link]</a>
-      <a href="unQVNTS_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/unQVNTS_presentation.pdf" target="_blank" class="bodylink"> [slides]</a>`,
 
 
       `I. Perez Avellaneda, <q>Nonlinear System Reachable Set Computation: Learning Approach with Chen-Fliess Series</q>.
       <em>UVM Computing Student Research Day 2022 (CSRD '22)</em>, Burlington, Vermont, September 23, 2022. <a href="https://www.uvm.edu/~jonaolap/csrd/2022.html" target="_blank" class="bodylink"> [link]</a>
-      <a href="CSRD22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/CSRD22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
       
       
       `I. Perez Avellaneda, <q>On Mixed-Monotonicity of Chen-Fliess Series</q>.
       <em>26th International Conference on System Theory, Control and Computing (ICSTCC)</em>, Sinaia, Romania, October 19th, 2022.  <a href="https://controls.papercept.net/conferences/conferences/STCC22/program/STCC22_ContentListWeb_1.html#web1" target="_blank" class="bodylink"> [link]</a>
-      <a href="ICSTC22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/ICSTC22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
       
       `I. Perez Avellaneda, <q>Reachability of Chen-Fliess Series: A Gradient Descent Approach</q>.
       <em>58th Annual Allerton Conference on Communication, Control, and Computing</em>, Monticello, Illinois, September 28th, 2022. <a href="https://allerton.csl.illinois.edu/2022-58th-allerton-conference-on-communication-control-and-computing-papers/" target="_blank" class="bodylink"> [link]</a>
-      <a href="Allerton22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
+      <a href="pdf/Allerton22.pdf" target="_blank" class="bodylink"> [slides]</a>`,
       
       
       `I. Perez Avellaneda, <q>The Electrical Department to the Rescue of the Financial Market: Controlling Debt</q>.

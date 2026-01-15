@@ -205,7 +205,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              These are related to first and second order derivatives, respectively.
              The advantage of the first approach is that it
              only uses the gradient while the second requires the computation
-             of the Hessian matrix. The second approach is faster when
+             of the Hessian matrix. The second approach is more accurate when
              the approximation to the second order of the Taylor polynomial
              is better.
              
@@ -219,7 +219,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              Second, I proved the first and second order
              Mean Value Theorem for Chen-Fliess series using the closed form of
              the Chen-Fliess series of the sum of two inputs rather than the 
-             classical approach by the chain rule. 
+             classical approach by the chain rule.
+             This allows a Taylor expansion of Chen-Fliess series.
              Third, I implemented the <em>Gradient Descent</em> and <em>Newton-Raphson</em>
              algorithm to optimize Chen-Fliess series.
              </p>
@@ -273,7 +274,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              to formalize the concepts of differential analysis of Chen-Fliess series.
              This helps provide a closed-form of the Fr&eacutechet and G&acircteaux derivative
              by building a bridge between noncommutative algebra and analysis and extends
-             differential calculus to Chen-Fliess series.
+             differential calculus to Chen-Fliess series. For this, alphabet is extended
+             with the introduction of <em>differential letters</em> that represent the action
+             of differentiation. Then a differential monoid is constructed by defining a
+             derivation operator on the free monoid. This operator satisfies the Leibniz rule.
+
+            <br>
+            <br>
+
+             Several properties of the derivation operator are provided including
+             its interaction with the shuffle product that show the combinatorial nature
+             of the differential monoid. An important property deduced from this theory
+             is that when the Fr&eacutechet and G&acircteaux derivatives exist, they are
+             equivalent, algebraically.
+             
+             The main result is a commutative diagram established
+             between the G&acircteaux or Fr&eacutechet derivative and the language derivative defined on the differential monoid.
              </p>
 
             
@@ -281,12 +297,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <figure style="text-align: center; margin-left: auto; margin-right: auto;">
                 <img src="img\commutativediag3.png" class="w3-round w3-image" alt="Commutative Diagram" 
                      style="width:100%; max-width:600px; display: block; margin: 0 auto;">
-                <figcaption>Fig.3 - Commutative diagram between the G&acircteaux derivative and the language derivative.</figcaption>
+                <figcaption>Fig.3 - Commutative diagram involving the G&acircteaux derivative \(\frac{\partial}{\partial v}\)
+                  and the language derivation \(\delta\). 
+                </figcaption>
               </figure>
             </div>
 
+            <p class="w3-large w3-justify">
+            In Fig.3, the space of Chen-Fliess series is denoted by \(\mathscr{F}\)
+            and the space of all locally convergent series is denoted by \(\mathbb{R}_{\text{LC}}\langle\langle X \rangle\rangle\), 
+            and \(Z\) is the alphabet \(X\) with the differential letters. This diagram shows that the G&acircteaux derivative
+            can be computed by means of the language derivation on the differential monoid. This is,
+            the derivative of Chen-Fliess series is equal to the Chen-Fliess series of the derivative of 
+            its generating series.
+            </p>
 
-            
+
             <br>
             
             <p class="w3-large w3-justify">
@@ -366,36 +392,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="w3-center" style="padding-top: 80px;">Software</h1>
       <br>
 
-      <!-- First Software -->
+
+      <!-- Third Software -->
+
 
       <div class="w3-padding-large">
         <!-- Image will stack on top of text on small screens -->
-        <img src="img\CFSpy_logo2.png" class="w3-round w3-image w3-margin-bottom" alt="Ivan Perez Avellaneda" 
-             style="max-width:100%; width:485px; margin-right: 10px; display:block; margin:0 auto;">
+         <img src="img/ChenFliessSeries_IvanPerezAvellaneda.png"
+        class="w3-round w3-image w3-margin-bottom"
+        alt="Ivan Perez Avellaneda"
+        style="max-width:60%; width:420px; margin-right: 10px; display:block; margin:0 auto; padding-top: 80px;">
+        
+        <hr>
+
+        <p class="w3-large w3-justify">
+          The ChenFliessSeries.jl is a library in the Julia programming language 
+          to simulate the output of a 
+          nonlinear control affine system by means of the Chen-Fliess series.
+          It's the adaptation of the CFSpy package in Python to Julia.
+          The package computes the list of coefficients of the Chen-Fliess series
+          and the list of iterated integrals up to a truncation length.
+        </p>
         
         <p class="w3-large w3-justify">
-          The Chen-Fliess Series Python (CFSpy) package is a set of functions used 
-          to simulate the output of control systems by means of Chen-Fliess series. 
-          CFSpy computes the list of coefficients of the Chen-Fliess series and the 
-          list of iterated integrals up to a truncation length. 
-          The package, also, provides functions that compute single iterated integrals 
-          and Lie derivatives. 
-          CFSpy is implemented in Python in the object-oriented paradigm.
+        First release: January, 2026
+        <br>
+        Currently version: 1.0.0.
+        <br>
+        License: MIT
         </p>
-  
+
         <div class="w3-container">
           <div class="w3-row-padding w3-center">
             <div class="w3-col s12 m4 l4 w3-left-align">
               <h3>Repositories:</h3>
             </div>
             <div class="w3-col s6 m4 l4">
-              <a href="https://pypi.org/project/CFSpy/" target="_blank">
-                <img src="img\PyPIlogo.svg" class="w3-round w3-margin-bottom" alt="PyPI Logo" style="width:80%; max-width:150px;">
+              <a href="https://github.com/JuliaRegistries/General/tree/master/C/ChenFliessSeries" target="_blank">
+                <img src="img\julia_logo.png" class="w3-round w3-margin-bottom" alt="Julia Logo Ivan Perez Avellaneda" style="width:100%; max-width:100px;">
               </a>
             </div>
             <div class="w3-col s6 m4 l4">
-              <a href="https://github.com/iperezav/CFSpy" target="_blank">
-                <img src="img\githublogo.png" class="w3-round w3-margin-bottom" alt="GitHub Logo" style="width:80%; max-width:150px;">
+              <a href="https://github.com/iperezav/ChenFliessSeries.jl" target="_blank">
+                <img src="img\githublogo.png" class="w3-round w3-margin-bottom" alt="GitHub Logo" style="width:80%; max-width:100px;">
               </a>
             </div>
           </div>
@@ -407,8 +446,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3>Documentation:</h3>
             </div>
             <div class="w3-col s6 m4 l4">
-              <a href="https://cfspy-docs.readthedocs.io/en/latest/" target="_blank">
-                <img src="img\readthedocslogo.png" class="w3-round w3-margin-bottom" alt="Read the Docs Logo" style="width:80%; max-width:150px;">
+              <a href="https://chenfliessseriesjl-docs.readthedocs.io/en/latest/" target="_blank">
+                <img src="img\readthedocslogo.png" class="w3-round w3-margin-bottom" alt="Read the Docs Logo" style="width:80%; max-width:120px;">
               </a>
             </div>
             <div class="w3-col s6 m4 l4">
@@ -423,34 +462,115 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <br>
 
-      
-      
       <!-- Second Software -->
 
-
-      <div class="w3-padding-large", style="padding-top:128px!important;">
+      <div class="w3-padding-large">
         <!-- Image will stack on top of text on small screens -->
-        <img src="img/ChenFliessSeries_IvanPerezAvellaneda.png" class="w3-round w3-image w3-margin-bottom" alt="Ivan Perez Avellaneda"
-        style="max-width:100%; width:650px; margin-right: 10px; display:block; margin:0 auto;">
+        <img src="img/CFSpy_logo2.png"
+        class="w3-round w3-image w3-margin-bottom"
+        alt="Ivan Perez Avellaneda"
+        style="max-width:35%; width:420px; margin-right: 10px; display:block; margin:0 auto; padding-top: 120px;">
         
+        <hr>
+
         <p class="w3-large w3-justify">
-          The ChenFliessSeries.jl is a Julia library to simulate the output of a 
-          nonlinear control affine system by means of the Chen-Fliess series.
+          The Chen-Fliess Series Python (CFSpy) package is a set of functions used 
+          to simulate the output of control systems by means of Chen-Fliess series. 
+          CFSpy computes the list of coefficients of the Chen-Fliess series and the 
+          list of iterated integrals up to a truncation length. 
+          The package, also, provides functions that compute single iterated integrals 
+          and Lie derivatives. 
+          CFSpy is implemented in Python in the object-oriented paradigm.
         </p>
-  
+
+
+        <p class="w3-large w3-justify">
+        First release: July, 2024
+        <br>
+        Currently version: 1.2.3.
+        <br>
+        License: MIT
+        </p>
+
         <div class="w3-container">
           <div class="w3-row-padding w3-center">
             <div class="w3-col s12 m4 l4 w3-left-align">
               <h3>Repositories:</h3>
             </div>
             <div class="w3-col s6 m4 l4">
-              <a href="https://github.com/JuliaRegistries/General/tree/master/C/ChenFliessSeries" target="_blank">
-                <img src="img\julia_logo.png" class="w3-round w3-margin-bottom" alt="Julia Logo Ivan Perez Avellaneda" style="width:150%; max-width:150px;">
+              <a href="https://pypi.org/project/CFSpy/" target="_blank">
+                <img src="img\PyPIlogo.svg" class="w3-round w3-margin-bottom" alt="PyPI Logo" style="width:100%; max-width:100px;">
               </a>
             </div>
             <div class="w3-col s6 m4 l4">
-              <a href="https://github.com/iperezav/ChenFliessSeries.jl" target="_blank">
-                <img src="img\githublogo.png" class="w3-round w3-margin-bottom" alt="GitHub Logo" style="width:80%; max-width:150px;">
+              <a href="https://github.com/iperezav/CFSpy" target="_blank">
+                <img src="img\githublogo.png" class="w3-round w3-margin-bottom" alt="GitHub Logo" style="width:80%; max-width:100px;">
+              </a>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="w3-row-padding w3-center">
+            <div class="w3-col s12 m4 l4 w3-left-align">
+              <h3>Documentation:</h3>
+            </div>
+            <div class="w3-col s6 m4 l4">
+              <a href="https://cfspy-docs.readthedocs.io/en/latest/" target="_blank">
+                <img src="img\readthedocslogo.png" class="w3-round w3-margin-bottom" alt="Read the Docs Logo" style="width:80%; max-width:120px;">
+              </a>
+            </div>
+            <div class="w3-col s6 m4 l4">
+              <!-- Empty column for symmetry, or add another documentation link -->
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <br>
+
+      <!-- First Software -->
+
+
+      <div class="w3-padding-large", style="padding-top:128px!important;">
+        <!-- Image will stack on top of text on small screens -->
+         <h2 class="w3-center" style="padding-top: 10px;">CFS-toolbox</h2>
+
+        <hr>
+
+        <p class="w3-large w3-justify">
+          The CFS-toolbox is a library of scripts written in MATLAB
+          to simulate the output of a 
+          nonlinear control affine system by means of the Chen-Fliess series.
+          It's the foundation of the CFSpy package in Python and ChenFliessSeries.jl in Julia.
+          The package computes the list of coefficients of the Chen-Fliess series
+          and the list of iterated integrals up to a truncation length.
+        </p>
+        
+        <p class="w3-large w3-justify">
+        First release: September, 2023
+        <br>
+        Currently version: 1.0
+        <br>
+        License: MIT
+        </p>
+
+        <div class="w3-container">
+          <div class="w3-row-padding w3-center">
+            <div class="w3-col s12 m4 l4 w3-left-align">
+              <h3>Repositories:</h3>
+            </div>
+            <div class="w3-col s6 m4 l4">
+              <a href="https://www.mathworks.com/matlabcentral/fileexchange/134576-cfs-toolbox" target="_blank">
+                <img src="img\Matlab_logo.png" class="w3-round w3-margin-bottom" alt="Julia Logo Ivan Perez Avellaneda" style="width:100%; max-width:100px;">
+              </a>
+            </div>
+            <div class="w3-col s6 m4 l4">
+              <a href="https://github.com/iperezav/CFS-toolbox" target="_blank">
+                <img src="img\githublogo.png" class="w3-round w3-margin-bottom" alt="GitHub Logo" style="width:80%; max-width:100px;">
               </a>
             </div>
           </div>
@@ -463,7 +583,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="w3-col s6 m4 l4">
               <a href="https://chenfliessseriesjl-docs.readthedocs.io/en/latest/" target="_blank">
-                <img src="img\readthedocslogo.png" class="w3-round w3-margin-bottom" alt="Read the Docs Logo" style="width:80%; max-width:150px;">
+                <img src="img\readthedocslogo.png" class="w3-round w3-margin-bottom" alt="Read the Docs Logo" style="width:80%; max-width:120px;">
               </a>
             </div>
             <div class="w3-col s6 m4 l4">
@@ -475,6 +595,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         </div>
       </div>
+      
+
     </div>
   </div>
   

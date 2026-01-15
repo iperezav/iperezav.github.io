@@ -101,7 +101,7 @@
 
       var ThesisItems = [
         `I. Perez Avellaneda, <q>Data-driven Reachability of Non-linear Systems via Optimization of Chen-Fliess Series</q>,
-        Ph.D. dissertation, University of Vermont, Burlington, Vermont, 2023.<a href="https://scholarworks.uvm.edu/graddis/1784/" target="_blank" class="bodylink"> [link]</a>`,
+        Ph.D. dissertation, University of Vermont, Burlington, Vermont, 2023.<a href="https://scholarworks.uvm.edu/items/dcd38b5d-f211-452a-becb-6b42ee7765c8" target="_blank" class="bodylink"> [link]</a>`,
 
         `I. Perez Avellaneda, <q>Debt control with a non-linear dynamical model: an application to the Peruvian economy for the period 1991-2014</q>,
         M.Sc. thesis, Esc. de Posgr, Pontificia Universidad Católica del Perú, Lima, Perú, 2021.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/21239" target="_blank" class="bodylink"> [link]</a>`,

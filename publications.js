@@ -28,7 +28,8 @@
   var JournalItems = [
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa and Francisco Rosales Marticorena. <q>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model</q>.
     <em>PLOS ONE</em>, 2023. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0295859" target="_blank" class="bodylink"> [link]</a> 
-    <a href="https://pubmed.ncbi.nlm.nih.gov/38335197/" target="_blank" class="bodylink"> [link]</a>`, 
+    <a href="https://pubmed.ncbi.nlm.nih.gov/38335197/" target="_blank" class="bodylink"> [PubMed link]</a>
+    <a href="https://ideas.repec.org/a/plo/pone00/0295859.html" target="_blank" class="bodylink"> [Ideas link]</a>`, 
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability</q>.
     <em>Systems and Control Letters</em>, 2023. under review. `,
     `<b>I. Perez Avellaneda</b> and L. A. Duffaut Espinosa. <q>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series</q>.
@@ -101,13 +102,16 @@
 
       var ThesisItems = [
         `I. Perez Avellaneda, <q>Data-driven Reachability of Non-linear Systems via Optimization of Chen-Fliess Series</q>,
-        Ph.D. dissertation, University of Vermont, Burlington, Vermont, 2023.<a href="https://scholarworks.uvm.edu/items/dcd38b5d-f211-452a-becb-6b42ee7765c8" target="_blank" class="bodylink"> [link]</a>`,
+        Ph.D. dissertation, University of Vermont, Burlington, Vermont, 2023.<a href="https://scholarworks.uvm.edu/items/dcd38b5d-f211-452a-becb-6b42ee7765c8" target="_blank" class="bodylink"> [link]</a>
+        <a href="pdf/PerezAvellaneda_uvm_0243D_11570.pdf" target="_blank" class="bodylink"> [pdf]</a>`,
 
         `I. Perez Avellaneda, <q>Debt control with a non-linear dynamical model: an application to the Peruvian economy for the period 1991-2014</q>,
-        M.Sc. thesis, Esc. de Posgr, Pontificia Universidad Católica del Perú, Lima, Perú, 2021.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/21239" target="_blank" class="bodylink"> [link]</a>`,
+        M.Sc. thesis, Esc. de Posgr, Pontificia Universidad Católica del Perú, Lima, Perú, 2021.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/21239" target="_blank" class="bodylink"> [link]</a>
+        <a href="pdf/PEREZ_AVELLANEDA_IVAN_DEBT_CONTROL_WITH_A_NON-LINEAR_DYNAMICAL_MODEL.pdf" target="_blank" class="bodylink"> [pdf]</a>`,
         
         `I. Perez Avellaneda, <q>Associative property on the group of elliptic curves</q>.
-        Lic. thesis, Fac. de Cs. e Ing., Pontificia Universidad Católica del Perú, Lima, Perú, 2017.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/9696" target="_blank" class="bodylink"> [link]</a>`,
+        Lic. thesis, Fac. de Cs. e Ing., Pontificia Universidad Católica del Perú, Lima, Perú, 2017.<a href="https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/9696" target="_blank" class="bodylink"> [link]</a>
+        <a href="pdf/PEREZ_IVAN_ASSOCIATIVE_ELLIPTIC_CURVES.pdf" target="_blank" class="bodylink"> [pdf]</a>`,
         ];
 
 

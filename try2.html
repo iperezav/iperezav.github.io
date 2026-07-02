@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ivan Perez Avellaneda | Reachability, Optimization & Chen–Fliess Series</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ivan Perez Avellaneda — reachability, optimization, and the algebra of Chen–Fliess series." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --bg-alt: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --border: #e5e7eb;
+      --code-bg: #111827;
+      --code-text: #e5e7eb;
+    }
+
+    body.dark {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+      --accent-soft: rgba(96, 165, 250, 0.12);
+      --border: #1f2937;
+      --code-bg: #020617;
+      --code-text: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0ecff 0, var(--bg) 40%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(247, 247, 251, 0.96), rgba(247, 247, 251, 0.85));
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+    }
+
+    body.dark header {
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.9));
+      border-bottom-color: rgba(31, 41, 55, 0.9);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: conic-gradient(from 210deg, #1d4ed8, #22c55e, #eab308, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    body.dark .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-name {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    body.dark .tag {
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: radial-gradient(circle at top left, #60a5fa, #2563eb);
+      color: #f9fafb;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    body.dark .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo-card {
+      border-radius: 1.5rem;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), #020617);
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.55);
+      position: relative;
+      overflow: hidden;
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .hero-photo-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.35), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.25), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-photo-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 3px solid rgba(248, 250, 252, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-photo-name {
+      color: #e5e7eb;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-photo-role {
+      color: #9ca3af;
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-photo-note {
+      color: #9ca3af;
+      font-size: 0.75rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .card {
+      border-radius: 1rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.3rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-weight: 550;
+      font-size: 0.98rem;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.25rem 0 0.5rem;
+    }
+
+    ul.clean li {
+      margin-bottom: 0.25rem;
+    }
+
+    .bullet {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.8rem;
+      overflow-x: auto;
+      border: 1px solid rgba(15, 23, 42, 0.6);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    blockquote {
+      margin: 0.75rem 0 0;
+      padding-left: 0.75rem;
+      border-left: 3px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo">IP</div>
+        <div class="nav-title">Ivan Perez Avellaneda</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#software">Software</a>
+        <a href="#talks">Talks</a>
+        <a href="#theses">Theses</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-ghost" id="theme-toggle" type="button">Dark</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div>
+        <div class="hero-name">Ivan Perez Avellaneda</div>
+        <h1 class="hero-title">Reachability, Optimization, and the Algebra of Chen–Fliess Series.</h1>
+        <p class="hero-subtitle">
+          I study reachability of nonlinear systems and optimization of Chen–Fliess series, building bridges between
+          noncommutative algebra, infinite-dimensional analysis, and computational control.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Nonlinear control</span>
+          <span class="tag">Reachability</span>
+          <span class="tag">Chen–Fliess series</span>
+          <span class="tag">Optimization</span>
+          <span class="tag">Differential monoids</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#publications"><button class="btn-primary" type="button">View publications</button></a>
+          <a href="#software"><button class="btn-outline" type="button">Explore software</button></a>
+          <a href="#theses"><button class="btn-outline" type="button">Thesis & dissertation</button></a>
+        </div>
+
+        <div class="hero-meta">
+          Ph.D. in Electrical Engineering (University of Vermont) · M.Sc. in Economics · B.Sc. & Lic. in Mathematics (PUCP).<br />
+          Working at the interface of nonlinear control, optimization, and scientific software.
+        </div>
+      </div>
+
+      <aside class="hero-photo-wrap" aria-label="Profile">
+        <div class="hero-photo-card">
+          <div class="hero-photo-inner">
+            <img src="img/Ivan_3.jpg" alt="Profile photo of Ivan Perez Avellaneda" class="hero-photo" />
+            <div class="hero-photo-name">Ivan Perez Avellaneda</div>
+            <div class="hero-photo-role">Nonlinear control & Chen–Fliess series</div>
+            <div class="hero-photo-note">
+              “Knowledge is a conjecture susceptible of improvement.” — K. Popper
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          Applied mathematician with a background in electrical engineering, economics, and pure mathematics.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-body">
+            I hold a Ph.D. in Electrical Engineering from the University of Vermont, an M.Sc. in Economics, and a
+            B.Sc. and Licentiate degree in Mathematics from the Pontificia Universidad Católica del Perú.
+            <br /><br />
+            During my doctoral studies I worked on infinite-dimensional real analysis, nonlinear control theory,
+            noncommutative algebra, and optimization. My research lies in the field of reachability analysis of
+            nonlinear systems, extending optimization methods to Chen–Fliess series. Prior to this, I worked on
+            algebraic geometry in mathematics and debt-control in economics.
+            <blockquote>
+              Knowledge is a conjecture susceptible of improvement — K. Popper
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Research interests</div>
+          </div>
+          <div class="card-body">
+            <ul class="clean">
+              <li class="bullet">• Reachability of nonlinear systems and safety analysis.</li>
+              <li class="bullet">• Optimization of Chen–Fliess series and control-affine systems.</li>
+              <li class="bullet">• Differential monoids and noncommutative algebra for analysis.</li>
+              <li class="bullet">• Data-driven and operator-theoretic approaches to control.</li>
+              <li class="bullet">• Scientific software in Python, Julia, MATLAB, and beyond.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <div class="section-header">
+        <h2 class="section-title">Research</h2>
+        <p class="section-subtitle">
+          Three main pillars: reachability of systems, optimization of Chen–Fliess series, and differential monoids.
+        </p>
+      </div>
+
+      <!-- Reachability of Systems -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Reachability of nonlinear systems</div>
+            <div class="card-meta">Input–output reachability, mixed-monotonicity, and Chen–Fliess series.</div>
+          </div>
+        </div>
+        <div class="card-body">
+          A reachable set is the set of states of a system resulting from a set of inputs and initial conditions.
+          Knowing these sets ahead of execution is crucial for planning and controlling system outputs. Popular
+          offline methodologies for nonlinear systems include Hamilton–Jacobi approaches, mixed-monotonicity, and
+          set-propagation.
+          <br /><br />
+          My contributions include:
+          <ul class="clean">
+            <li class="bullet">• A reachable set overestimation using interval arithmetic.</li>
+            <li class="bullet">• Extending mixed-monotonicity to Chen–Fliess series, yielding an Input–Output Mixed-Monotonicity (IOMM) framework.</li>
+            <li class="bullet">• Extending differential analysis tools to Chen–Fliess series to improve IOMM outcomes.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Reachability</span>
+            <span class="pill">Mixed-monotonicity</span>
+            <span class="pill">Chen–Fliess series</span>
+            <span class="pill">Interval arithmetic</span>
+          </div>
+          <br />
+          <div class="card-meta">
+            Selected publications:
+            <ul class="clean">
+              <li class="bullet">• Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series (Allerton 2023).</li>
+              <li class="bullet">• An Interval Arithmetic Approach to Input-Output Reachability (CCTA 2023).</li>
+              <li class="bullet">• Output Reachability of Chen-Fliess Series: A Newton-Raphson Approach (CISS 2023).</li>
+              <li class="bullet">• Reachability of Chen-Fliess Series: A Gradient Descent Approach (Allerton 2022).</li>
+              <li class="bullet">• On Mixed-Monotonicity of Chen-Fliess Series (ICSTCC 2022).</li>
+            </ul>
+          </div>
+          <div class="card-meta">
+            Sponsors: NASACRREL
+          </div>
+        </div>
+      </div>
+
+      <!-- Optimization of Chen-Fliess Series -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Optimization of Chen–Fliess series</div>
+            <div class="card-meta">Gradient descent, Newton–Raphson, and higher-order analysis.</div>
+          </div>
+        </div>
+        <div class="card-body">
+          Optimization is pervasive across scientific disciplines. In nonlinear optimization, line search and trust
+          region methods stand out, tied to first- and second-order derivatives. The former uses gradients, while the
+          latter relies on Hessians and benefits from accurate second-order approximations.
+          <br /><br />
+          My contributions include:
+          <ul class="clean">
+            <li class="bullet">• Closed forms of Fréchet and Gâteaux derivatives, gradients, and Hessians of Chen–Fliess series.</li>
+            <li class="bullet">• First- and second-order Mean Value Theorems for Chen–Fliess series using the Chen–Fliess series of the sum of two inputs, enabling Taylor expansions.</li>
+            <li class="bullet">• Implementations of gradient descent and Newton–Raphson algorithms to optimize Chen–Fliess series.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Nonlinear optimization</span>
+            <span class="pill">Fréchet & Gâteaux derivatives</span>
+            <span class="pill">Hessian-based methods</span>
+            <span class="pill">Chen–Fliess series</span>
+          </div>
+          <br />
+          <div class="card-meta">
+            Selected publications:
+            <ul class="clean">
+              <li class="bullet">• CFSpy: A Python Library for the Computation of Chen-Fliess Series (SciPy 2025).</li>
+              <li class="bullet">• Derivatives of Chen-Fliess Series with Applications to Optimal Control (CDC 2023).</li>
+              <li class="bullet">• An Interval Arithmetic Approach to Input-Output Reachability (CCTA 2023).</li>
+              <li class="bullet">• Output Reachability of Chen-Fliess Series: A Newton-Raphson Approach (CISS 2023).</li>
+              <li class="bullet">• Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability (Systems & Control Letters, under review).</li>
+              <li class="bullet">• Input-Output Overestimation of Reachable Sets with Chen-Fliess Series (IEEE TAC, under review).</li>
+            </ul>
+          </div>
+          <div class="card-meta">
+            Sponsors: NASACRREL
+          </div>
+        </div>
+      </div>
+
+      <!-- Differential monoids -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Differential monoids</div>
+            <div class="card-meta">Noncommutative algebra for differential analysis of Chen–Fliess series.</div>
+          </div>
+        </div>
+        <div class="card-body">
+          I introduced the theory of differential monoids to formalize differential analysis of Chen–Fliess series,
+          building a bridge between noncommutative algebra and analysis. The alphabet is extended with differential
+          letters representing differentiation, and a derivation operator on the free monoid is defined, satisfying
+          the Leibniz rule.
+          <br /><br />
+          Several properties of this derivation operator, including its interaction with the shuffle product, reveal
+          the combinatorial nature of the differential monoid. A key result is that when Fréchet and Gâteaux
+          derivatives exist, they are algebraically equivalent. The main theorem establishes a commutative diagram
+          between the Gâteaux/Fréchet derivative and the language derivative on the differential monoid, showing that
+          the derivative of a Chen–Fliess series equals the Chen–Fliess series of the derivative of its generating
+          series.
+          <div class="pill-row">
+            <span class="pill">Differential monoids</span>
+            <span class="pill">Noncommutative algebra</span>
+            <span class="pill">Chen–Fliess derivatives</span>
+          </div>
+          <br />
+          <div class="card-meta">
+            Selected references:
+            <ul class="clean">
+              <li class="bullet">• Data-driven Reachability of Non-linear Systems via Optimization of Chen-Fliess Series (Ph.D. dissertation, UVM, 2023).</li>
+              <li class="bullet">• CFSpy: A Python Library for the Computation of Chen-Fliess Series (SciPy 2025).</li>
+              <li class="bullet">• Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability (Systems & Control Letters, under review).</li>
+            </ul>
+          </div>
+          <div class="card-meta">
+            Sponsors: NASACRREL
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <div class="section-header">
+        <h2 class="section-title">Publications</h2>
+        <p class="section-subtitle">
+          Conferences, journals, and major theses related to reachability, Chen–Fliess series, and control.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Conference papers</div>
+        </div>
+        <div class="card-body">
+          <ul class="clean">
+            <li class="bullet">
+              • I. Perez Avellaneda. <em>CFSpy: A Python Library for the Computation of Chen-Fliess Series.</em>
+              24th Annual Python in Science Conference, Seattle, Washington, 2025. [link]
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>Backward and Inner Approximation of Output Reachable Sets via Chen-Fliess Series.</em>
+              59th Annual Allerton Conference on Communication, Control, and Computing, 2023. [link]
+            </li>
+            <li class="bullet">
+              • L. A. Duffaut Espinosa, W. S. Gray and I. Perez Avellaneda.
+              <em>Derivatives of Chen-Fliess Series with Applications to Optimal Control.</em>
+              62nd Conference on Decision and Control, 2023. [link]
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>An Interval Arithmetic Approach to Input-Output Reachability.</em>
+              7th Conference on Control Technology and Applications, Bridgetown, Barbados, 2023. [link]
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>Output Reachability of Chen-Fliess Series: A Newton-Raphson Approach.</em>
+              57th Annual Conference on Information Science and Systems, Baltimore, Maryland, 2023, pp. 1–6. [link]
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>Reachability of Chen-Fliess Series: A Gradient Descent Approach.</em>
+              58th Annual Allerton Conference on Communication, Control, and Computing, Monticello, Illinois, 2022, pp. 1–7. [link]
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>On Mixed-Monotonicity of Chen-Fliess Series.</em>
+              26th International Conference on System Theory, Control and Computing (ICSTCC), Sinaia, Romania, 2022, pp. 98–103. [link]
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Journal articles</div>
+        </div>
+        <div class="card-body">
+          <ul class="clean">
+            <li class="bullet">
+              • I. Perez Avellaneda, L. A. Duffaut Espinosa, and F. Rosales Marticorena.
+              <em>Feedback Dynamic Control for Exiting a Debt-Induced Spiral in a Deterministic Keen Model.</em>
+              PLOS ONE, 2023. [link] [PubMed link] [Ideas link]
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>Second-Order Optimization of Chen-Fliess Series for Input-Output Reachability.</em>
+              Systems and Control Letters, 2023. (under review)
+            </li>
+            <li class="bullet">
+              • I. Perez Avellaneda and L. A. Duffaut Espinosa.
+              <em>Input-Output Overestimation of Reachable Sets with Chen-Fliess Series.</em>
+              IEEE Transactions on Automatic Control, 2023. (under review)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Software -->
+    <section id="software">
+      <div class="section-header">
+        <h2 class="section-title">Software</h2>
+        <p class="section-subtitle">
+          Open-source tools for simulating and optimizing Chen–Fliess series and control-affine systems.
+        </p>
+      </div>
+
+      <!-- ChenFliessSeries.jl -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">ChenFliessSeries.jl</div>
+            <div class="card-meta">Julia library for Chen–Fliess series simulation.</div>
+          </div>
+          <div class="card-meta">
+            First release: January 2026 · Version: 1.0.0 · MIT License
+          </div>
+        </div>
+        <div class="card-body">
+          The <strong>ChenFliessSeries.jl</strong> package is a Julia library to simulate the output of nonlinear
+          control-affine systems via Chen–Fliess series. It adapts the CFSpy package from Python to Julia, computing
+          the list of coefficients and iterated integrals up to a truncation length.
+          <div class="pill-row">
+            <span class="pill">Julia</span>
+            <span class="pill">Chen–Fliess series</span>
+            <span class="pill">Control-affine systems</span>
+          </div>
+          <br />
+          <div class="card-meta">
+            Repositories: GitHub (Julia) · Documentation: Read the Docs
+          </div>
+        </div>
+      </div>
+
+      <!-- CFSpy -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">CFSpy</div>
+            <div class="card-meta">Python library for Chen–Fliess series and related computations.</div>
+          </div>
+          <div class="card-meta">
+            First release: July 2024 · Version: 1.2.3 · MIT License
+          </div>
+        </div>
+        <div class="card-body">
+          <strong>CFSpy</strong> (Chen–Fliess Series Python) is a set of functions to simulate the output of control
+          systems via Chen–Fliess series. It computes coefficients and iterated integrals up to a truncation length,
+          and provides routines for single iterated integrals and Lie derivatives, implemented in an object-oriented
+          Python design.
+          <div class="pill-row">
+            <span class="pill">Python</span>
+            <span class="pill">Chen–Fliess series</span>
+            <span class="pill">Lie derivatives</span>
+          </div>
+          <br />
+          <div class="card-meta">
+            Repositories: PyPI · GitHub · Documentation: Read the Docs
+          </div>
+        </div>
+      </div>
+
+      <!-- CFS-toolbox -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">CFS-toolbox</div>
+            <div class="card-meta">MATLAB scripts for Chen–Fliess series simulation.</div>
+          </div>
+          <div class="card-meta">
+            First release: September 2023 · Version: 1.0 · MIT License
+          </div>
+        </div>
+        <div class="card-body">
+          The <strong>CFS-toolbox</strong> is a MATLAB library of scripts to simulate the output of nonlinear
+          control-affine systems via Chen–Fliess series. It is the foundation of CFSpy (Python) and
+          ChenFliessSeries.jl (Julia), computing coefficients and iterated integrals up to a truncation length.
+          <div class="pill-row">
+            <span class="pill">MATLAB</span>
+            <span class="pill">Chen–Fliess series</span>
+            <span class="pill">Foundational toolbox</span>
+          </div>
+          <br />
+          <div class="card-meta">
+            Repositories: GitHub (MATLAB) · Documentation: Read the Docs
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Talks -->
+    <section id="talks">
+      <div class="section-header">
+        <h2 class="section-title">Talks</h2>
+        <p class="section-subtitle">
+          Selected talks on Chen–Fliess series, reachability, optimization, and applications in economics and AI.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Selected talks</div>
+        </div>
+        <div class="card-body">
+          <ul class="clean">
+            <li class="bullet">
+              • <strong>The Problem of Address Matching: a Journey through NLP and AI.</strong>
+              PyData 2025, Seattle, Washington, November 2025. (Forthcoming)
+            </li>
+            <li class="bullet">
+              • <strong>CFSpy: a Python Library for the Computation of Chen-Fliess Series.</strong>
+              SciPy 2025: 24th annual SciPy conference, Tacoma, Washington, July 9th, 2025. [link] [poster]
+            </li>
+            <li class="bullet">
+              • <strong>Data-Driven Reachability of Non-Linear Systems via Optimization of Chen-Fliess Series.</strong>
+              ADEEM PUCP Talk, March 12th, 2024.
+            </li>
+            <li class="bullet">
+              • <strong>Reachability of nonlinear systems via Optimization of Chen-Fliess series.</strong>
+              Old Dominion University ECE Graduate Seminar, November 10th, 2023.
+            </li>
+            <li class="bullet">
+              • <strong>Backward and Inner Approximation of Output Reachable sets via Chen-Fliess Series.</strong>
+              58th Annual Allerton Conference on Communication, Control, and Computing, Monticello, Illinois, September 29th, 2023. [link]
+            </li>
+            <li class="bullet">
+              • <strong>An Interval Arithmetic Approach to Input-Output Reachability.</strong>
+              7th Conference on Control Technology and Applications, Bridgetown, Barbados, August 17, 2023. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>Optimization of Chen-Fliess Series and Output Reachability of Nonlinear Systems.</strong>
+              Student Research Conference 2023, Burlington, Vermont, April 19, 2023. [link] [poster]
+            </li>
+            <li class="bullet">
+              • <strong>Output Reachability of Chen-Fliess Series: a Newton-Raphson Approach.</strong>
+              57th Annual Conference on Information Science and Systems, Baltimore, Maryland, March 25, 2023. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>Private Debt Control in the Peruvian Economy for the Period 1991-2014.</strong>
+              USMP XIII Conferencia Internacional: Retos y Desafíos de la Nueva Economía 2023, Lima, Peru, February 21, 2023. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>The Problem of Stationary Points of Chen-Fliess Series.</strong>
+              Quebec-Vermont Number Theory Seminar (unQVNTS Vermont), Burlington, Vermont, January 19, 2023. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>Nonlinear System Reachable Set Computation: Learning Approach with Chen-Fliess Series.</strong>
+              UVM Computing Student Research Day 2022 (CSRD '22), Burlington, Vermont, September 23, 2022. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>On Mixed-Monotonicity of Chen-Fliess Series.</strong>
+              26th International Conference on System Theory, Control and Computing (ICSTCC), Sinaia, Romania, October 19th, 2022. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>Reachability of Chen-Fliess Series: A Gradient Descent Approach.</strong>
+              58th Annual Allerton Conference on Communication, Control, and Computing, Monticello, Illinois, September 28th, 2022. [link] [slides]
+            </li>
+            <li class="bullet">
+              • <strong>The Electrical Department to the Rescue of the Financial Market: Controlling Debt.</strong>
+              UVM SCRAPS Seminar, Burlington, Vermont, October 21, 2019. [link]
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theses -->
+    <section id="theses">
+      <div class="section-header">
+        <h2 class="section-title">Thesis & dissertation</h2>
+        <p class="section-subtitle">
+          Major theses spanning nonlinear systems, economics, and algebraic geometry.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Ph.D. dissertation</div>
+        </div>
+        <div class="card-body">
+          <strong>Data-driven Reachability of Non-linear Systems via Optimization of Chen-Fliess Series.</strong><br />
+          Ph.D. dissertation, University of Vermont, Burlington, Vermont, 2023. [link] [pdf]
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">M.Sc. thesis (Economics)</div>
+        </div>
+        <div class="card-body">
+          <strong>Debt control with a non-linear dynamical model: an application to the Peruvian economy for the period 1991-2014.</strong><br />
+          M.Sc. thesis, Esc. de Posgr., Pontificia Universidad Católica del Perú, Lima, Perú, 2021. [link] [pdf]
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Licentiate thesis (Mathematics)</div>
+        </div>
+        <div class="card-body">
+          <strong>Associative property on the group of elliptic curves.</strong><br />
+          Lic. thesis, Fac. de Cs. e Ing., Pontificia Universidad Católica del Perú, Lima, Perú, 2017. [link] [pdf]
+        </div>
+      </div>
+    </section>
+
+    <!-- News / Sponsors -->
+    <section id="news">
+      <div class="section-header">
+        <h2 class="section-title">News & support</h2>
+        <p class="section-subtitle">
+          Recent highlights and research sponsorship.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Recent highlights</div>
+        </div>
+        <div class="card-body">
+          <ul class="clean">
+            <li class="bullet">• 2025: CFSpy presented at the 24th Annual Python in Science Conference (SciPy 2025).</li>
+            <li class="bullet">• 2024: Invited talk on data-driven reachability via Chen–Fliess series at ADEEM PUCP.</li>
+            <li class="bullet">• 2023: Multiple conference contributions on reachability and optimization of Chen–Fliess series (Allerton, CCTA, CISS, CDC).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Sponsors</div>
+        </div>
+        <div class="card-body">
+          My research on reachability, optimization of Chen–Fliess series, and differential monoids has been supported by:
+          <ul class="clean">
+            <li class="bullet">• NASACRREL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          Best ways to reach me and follow my work.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-body">
+            <ul class="clean">
+              <li class="bullet"><strong>Email:</strong> <a href="mailto:iperezave@gmail.com">iperezave@gmail.com</a></li>
+              <li class="bullet"><strong>GitHub:</strong> <a href="https://github.com/iperezav">github.com/iperezav</a></li>
+              <li class="bullet"><strong>Google Scholar:</strong> <a href="#">Scholar profile</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <span class="bullet">
+              I’m interested in collaborations at the intersection of nonlinear control, Chen–Fliess series, and
+              computational pipelines—especially where theory, software, and data-driven methods meet.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Ivan Perez Avellaneda</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#publications">Publications</a>
+        <a href="#software">Software</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById("theme-toggle");
+    const storedTheme = window.localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      document.body.classList.add("dark");
+      toggle.textContent = "Light";
+    }
+
+    toggle.addEventListener("click", () => {
+      const isDark = document.body.classList.toggle("dark");
+      toggle.textContent = isDark ? "Light" : "Dark";
+      window.localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>

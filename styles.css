@@ -89,3 +89,38 @@ code {
 .decorator { color: #d7ba7d; }
 .class { color: #4ec9b0; }
 .constant { color: #4fc1ff; }
+
+.photos-page {
+  max-width: 1600px;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-section {
+  margin-bottom: 48px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.photo-grid a {
+  display: block;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
